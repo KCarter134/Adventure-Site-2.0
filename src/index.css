@@ -1,13 +1,10 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+@import './assets/css/festivalPage.css';
+@import './assets/css/home.css';
+@import './assets/css/navbar.css';
+@import './assets/css/travel.css';
+@import './assets/css/travelParks.css';
+@import './assets/css/travelCamping.css';
+@import './assets/css/travelEvents.css';
+@import './assets/css/travelPlaces.css';
+@import './assets/css/travelPeople.css';
+@import './assets/css/travelTours.css';
