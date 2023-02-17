@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+}
+
+.web-title {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    margin: 0;
+    z-index: 999;
+}
+
+.city-pic {
+    width: 100vw;
+    z-index: 1;
+    height: 100%;
+}
+
+#search-section {
+    /* color: white; */
+    text-align: center;
+    margin-bottom: 100px;
+    /* background-color: black; */
+}
+
+.search-bar {
+    height: 40px;
+
+}
+
+#user-input {
+    font-size: 30px;
+    width: 40vw;
+}
+
+.submit{
+    width: 100px;
+    font-size: larger
+}
+
+                                                /* dynamic cards */
+
+#card-container {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 15% 15% 15% 15%;
+    gap: 30px;
+    justify-content: center;
+
+}
+
+.card-body {
+    text-align: center;
+    font-size: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    -moz-box-shadow: 0 0 10px rgb(0, 0, 0);
+    -webkit-box-shadow: 0 0 10px rgb(0, 0, 0);
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+}
+
+.concert-img {
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+                                                    /* Modal Info */
+
+.modal-title {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.modal-img {
+    width: 80%;
+    height: 300px;
+}
+
+.secondary-info {
+    font-size: 28px;
+}
+
+
+                                                    /* Festival Form Info */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+    }
+    
+    body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #8EC1D6;
+    }
+    
+    .logIn-form {
+      margin: 100px auto;
+      width: 200px;
+      height: 250px;
+      background-color: #fff;
+      border-radius: 10px; 
+    }
+    
+    .logIn-form p {
+      text-align: center;
+      font-size: 12px;
+      font-weight: 600;
+      color: #B8BFC6;
+      padding: 10px 10px;
+    }
+    
+    .logIn-form input {
+      display: block;
+      width: 80%;
+      height: 40px;
+      margin: 10px auto;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 0 10px;
+      font-size: 16px;
+      color: black;
+    }
+    
+    .logIn-form button {
+      background-color: #8EC1D6;
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      border-radius:7px;
+      padding: 5px 10px;
+      border: none;
+    }
+
+@media (max-width: 1300px) {
+    #card-container { 
+        grid-template-columns: repeat(3, 1fr); 
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .card-body {font-size: 19px;}
+    .web-title {font-size: 3vw;}
+    #user-input {
+        font-size: 25px;
+        width: 60vw;
+    }
+  }
+
+@media (max-width: 700px) {
+    #card-container { grid-template-columns: repeat(2, 1fr); }
+    .card-body {font-size: 15px;}
+    #user-input {
+        font-size: 20px;
+        width: 80vw;
+}
+}
+
+@media (max-width: 400px) {
+    #card-container { grid-template-columns: repeat(1, 1fr); }
+    .card-body {font-size: 15px;}
+    #user-input {
+        font-size: 20px;
+        width: 80vw;
+    }
+  }
