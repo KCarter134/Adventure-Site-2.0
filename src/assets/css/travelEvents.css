@@ -1,0 +1,16 @@
+.card-fee {
+    font-size: 17px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.start-end-times {
+    display: flex;
+    flex-direction: column;
+}
+
+.event-desc {
+    height: 60px;
+    overflow: auto;
+    margin-bottom: 10px;
+}

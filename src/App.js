@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FestivalPage from "./components/festivalPage";
+import Home from './components/home'
+import Travel from "./components/travel"
+import Navbar from './components/navbar';
+import TravelAPI from './components/travelAPI'
+import TravelParks from './components/travelParks'
+import TravelCamping from './components/travelCamping'
+import TravelEvents from './components/travelEvents'
+import TravelPlaces from './components/travelPlaces'
+import TravelPeople from './components/travelPeople'
+import TravelTours from './components/travelTours'
+import './index.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+        <>
+        <Navbar />
+        
+        <div className="App">
+          <Routes>
+            <Route path="/Personal-Adventure" element={<Home />}/>
+            <Route path="/" element={<Home />}/>
+            <Route path="/festivalPage" element={<FestivalPage />}/>
+            <Route path="/travel" element={<Travel />}/>
+            <Route path='/travelParks' element={<TravelParks />} />
+            <Route path='/travelCamping' element={<TravelCamping />} />
+            <Route path='/travelEvents' element={<TravelEvents />} />
+            <Route path='/travelPlaces' element={<TravelPlaces />} />
+            <Route path='/travelPeople' element={<TravelPeople />} />
+            <Route path='/travelTours' element={<TravelTours />} />
+          </Routes>
+        </div>
+        </>
+
   );
 }
 
-export default App;
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
