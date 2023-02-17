@@ -20,7 +20,7 @@ export default function App() {
         
         <div className="App">
           <Routes>
-            <Route path="/Personal-Adventure" element={<Home />}/>
+            <Route path="/Adventure-Site-2.0" element={<Home />}/>
             <Route path="/" element={<Home />}/>
             <Route path="/festivalPage" element={<FestivalPage />}/>
             <Route path="/travel" element={<Travel />}/>
