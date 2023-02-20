@@ -33,11 +33,11 @@ function Travel() {
                     <img src={placesPic} alt='' className='travel-pic' />
                     <div className='travel-picture-text places-text'>Places</div>
                 </Link>
-                <Link className='travel-option something2'>
+                <Link to="/TravelPeople" className='travel-option something2'>
                     <img src={activitiesPic} alt='' className='travel-pic' />
                     <div className='travel-picture-text activites-text'>People</div>
                 </Link>
-                <Link className='travel-option something3'>
+                <Link to="/TravelTours" className='travel-option something3'>
                     <img src={parkTourPic} alt='' className='travel-pic' />
                     <div className='travel-picture-text tours-text'>Tours</div>
                 </Link>
