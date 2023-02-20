@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
-import campingPic from "../assets/pictures/camping.jpg"
+import parkPic from "../assets/pictures/park.jpg"
 import "../utils/helpers"
-import { arraySearch } from '../utils/helpers';
 
 function TravelCamping() {
 
@@ -25,8 +24,6 @@ function TravelCamping() {
             )
         }, [])
 
-
-    
 if (error) {
 return <div>Error: {error.message}</div>;
 } else if (!isLoaded) {
@@ -35,7 +32,7 @@ return <div>Loading...</div>;
     
     return (
         <section className='mapped-info-cont'>
-            <img src={campingPic} className='park-pic card-pic' alt='main-img'></img>
+            <img src={parkPic} className='park-pic card-pic' alt='main-img'></img>
             <div className='page-nav-wrap'>
                 <div className='page-nav'>
                     <Link to="/TravelParks" className='nav'>Parks</Link>
@@ -50,7 +47,7 @@ return <div>Loading...</div>;
             <div className='mapped-info-inner camp-inner'>
             {data.map(item => (
                 <li key={item.id}>
-                <img className='container-pic' alt='card-img' src={item.images[0].url}></img>
+                <img className='container-pic' alt='card-img' src={item.images}></img>
                         <div className='camp-name card-title'>{item.name}</div>
                         <div className='camp-sites'>Campsites Available: {item.campsites.totalSites}</div>
                         <div className='camp-desc card-desc'>{item.description}</div>
