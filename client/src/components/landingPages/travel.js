@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import mountainPic from '../assets/pictures/mountain.jpg'
-import parkPic from "../assets/pictures/park.jpg"
-import campPic from "../assets/pictures/camping.jpg"
-import parkEvents from "../assets/pictures/parkEvents.jpg"
-import placesPic from "../assets/pictures/placesPic.jpg"
-import activitiesPic from "../assets/pictures/activitiesPic.jpg"
-import parkTourPic from "../assets/pictures/parkTourPic.jpg"
+import mountainPic from '../../assets/pictures/mountain.jpg'
+import parkPic from "../../assets/pictures/park.jpg"
+import campPic from "../../assets/pictures/camping.jpg"
+import parkEvents from "../../assets/pictures/parkEvents.jpg"
+import placesPic from "../../assets/pictures/placesPic.jpg"
+import activitiesPic from "../../assets/pictures/activitiesPic.jpg"
+import parkTourPic from "../../assets/pictures/parkTourPic.jpg"
 
 
 
@@ -33,11 +33,11 @@ function Travel() {
                     <img src={placesPic} alt='' className='travel-pic' />
                     <div className='travel-picture-text places-text'>Places</div>
                 </Link>
-                <Link className='travel-option something2'>
+                <Link to="/TravelPeople" className='travel-option something2'>
                     <img src={activitiesPic} alt='' className='travel-pic' />
                     <div className='travel-picture-text activites-text'>People</div>
                 </Link>
-                <Link className='travel-option something3'>
+                <Link to="/TravelTours" className='travel-option something3'>
                     <img src={parkTourPic} alt='' className='travel-pic' />
                     <div className='travel-picture-text tours-text'>Tours</div>
                 </Link>
