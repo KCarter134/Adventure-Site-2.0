@@ -9,7 +9,7 @@ function Navbar() {
           <Link to="/" className="title">
             Homepage
           </Link>
-          <Link to="/travel" className="title">
+          <Link to="/nationalTravel" className="title">
             National Travel
           </Link>
           <Link to="/localTravel" className="title">

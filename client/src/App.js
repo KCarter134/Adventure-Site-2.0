@@ -2,7 +2,7 @@ import reportWebVitals from './reportWebVitals';
 import { Routes, Route } from "react-router-dom";
 import FestivalPage from "./components/landingPages/festivalPage";
 import Home from './components/landingPages/home'
-import Travel from "./components/landingPages/travel"
+import NationalTravel from "./components/landingPages/nationalTravel"
 import Navbar from './components/navbar';
 import TravelParks from '../src/components/travelPages/travelParks'
 import TravelCamping from '../src/components/travelPages/travelCamping'
@@ -12,6 +12,8 @@ import TravelPeople from '../src/components/travelPages/travelPeople'
 import TravelTours from '../src/components/travelPages/travelTours'
 import LocalTravel from './components/landingPages/localTravel'
 import Profile from './components/landingPages/profile'
+import Login from './components/user/login'
+import Signup from './components/user/signup'
 import './index.css';
 
 export default function App() {
@@ -24,7 +26,7 @@ export default function App() {
             <Route path="/Adventure-Site-2.0" element={<Home />}/>
             <Route path="/" element={<Home />}/>
             <Route path="/festivalPage" element={<FestivalPage />}/>
-            <Route path="/travel" element={<Travel />}/>
+            <Route path="/nationalTravel" element={<NationalTravel />}/>
             <Route path='/travelParks' element={<TravelParks />} />
             <Route path='/travelCamping' element={<TravelCamping />} />
             <Route path='/travelEvents' element={<TravelEvents />} />
@@ -33,6 +35,8 @@ export default function App() {
             <Route path='/travelTours' element={<TravelTours />} />
             <Route path='/localTravel' element={<LocalTravel />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
           </Routes>
         </div>
         </>
