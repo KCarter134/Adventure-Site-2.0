@@ -8,7 +8,7 @@ function FestivalForm() {
       const handleSubmit = (e) => {
           e.preventDefault();
     
-          Axios.post('http://localhost:4000/insert', {
+          Axios.post('http://localhost:3000/insert', {
               city: city,
               venue: venue
           })

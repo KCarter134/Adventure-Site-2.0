@@ -1,17 +1,17 @@
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import FestivalPage from "./components/festivalPage";
-import Home from './components/home'
-import Travel from "./components/travel"
+import { Routes, Route } from "react-router-dom";
+import FestivalPage from "./components/landingPages/festivalPage";
+import Home from './components/landingPages/home'
+import Travel from "./components/landingPages/travel"
 import Navbar from './components/navbar';
-import TravelAPI from './components/travelAPI'
-import TravelParks from './components/travelParks'
-import TravelCamping from './components/travelCamping'
-import TravelEvents from './components/travelEvents'
-import TravelPlaces from './components/travelPlaces'
-import TravelPeople from './components/travelPeople'
-import TravelTours from './components/travelTours'
-import LocalTravel from './components/localTravel'
+import TravelParks from '../src/components/travelPages/travelParks'
+import TravelCamping from '../src/components/travelPages/travelCamping'
+import TravelEvents from '../src/components/travelPages/travelEvents'
+import TravelPlaces from '../src/components/travelPages/travelPlaces'
+import TravelPeople from '../src/components/travelPages/travelPeople'
+import TravelTours from '../src/components/travelPages/travelTours'
+import LocalTravel from './components/landingPages/localTravel'
+import Profile from './components/landingPages/profile'
 import './index.css';
 
 export default function App() {
@@ -32,6 +32,7 @@ export default function App() {
             <Route path='/travelPeople' element={<TravelPeople />} />
             <Route path='/travelTours' element={<TravelTours />} />
             <Route path='/localTravel' element={<LocalTravel />} />
+            <Route path='/profile' element={<Profile />} />
           </Routes>
         </div>
         </>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import mountainPic from '../assets/pictures/mountain.jpg'
-import parkPic from "../assets/pictures/park.jpg"
-import campPic from "../assets/pictures/camping.jpg"
-import parkEvents from "../assets/pictures/parkEvents.jpg"
-import placesPic from "../assets/pictures/placesPic.jpg"
-import activitiesPic from "../assets/pictures/activitiesPic.jpg"
-import parkTourPic from "../assets/pictures/parkTourPic.jpg"
+import mountainPic from '../../assets/pictures/mountain.jpg'
+import parkPic from "../../assets/pictures/park.jpg"
+import campPic from "../../assets/pictures/camping.jpg"
+import parkEvents from "../../assets/pictures/parkEvents.jpg"
+import placesPic from "../../assets/pictures/placesPic.jpg"
+import activitiesPic from "../../assets/pictures/activitiesPic.jpg"
+import parkTourPic from "../../assets/pictures/parkTourPic.jpg"
 
 
 

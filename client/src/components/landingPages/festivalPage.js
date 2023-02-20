@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
-import cityPic from '../assets/pictures/city.jpg'
-import FestivalPageForm from './festivalPageForm'
+import cityPic from '../../assets/pictures/city.jpg'
+import FestivalPageForm from '../festivalPageForm'
 
 export default function Homepage() {
 

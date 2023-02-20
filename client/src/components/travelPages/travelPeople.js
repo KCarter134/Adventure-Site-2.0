@@ -1,7 +1,6 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import parkPic from "../assets/pictures/park.jpg";
+import parkPic from "../../assets/pictures/park.jpg";
 
 
 function TravelParks() {
@@ -11,7 +10,7 @@ function TravelParks() {
     const [data, setItems] = useState([]);
 
     useEffect(() => {
-        fetch("https:developer.nps.gov/api/v1/parks?limit=50&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
+        fetch("https://developer.nps.gov/api/v1/people?limit=50&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
@@ -35,11 +34,11 @@ return <div>Loading...</div>;
             <img src={parkPic} className='park-pic card-pic' alt='parkpic'></img>
             <div className='page-nav-wrap'>
                 <div className='page-nav'>
-                    <Link to="/TravelParks" className='nav in-use'>Parks</Link>
+                    <Link to="/TravelParks" className='nav'>Parks</Link>
                     <Link to="/TravelCamping" className='nav'>Camping</Link>
                     <Link to="/TravelEvents" className='nav'>Events</Link>
                     <Link to="/TravelPlaces" className='nav'>Places</Link>
-                    <Link to="/TravelPeople" className='nav'>People</Link>
+                    <Link to="/TravelPeople" className='nav in-use'>People</Link>
                     <Link to="/TravelTours" className='nav'>Tours</Link>
                 </div>
             </div>
@@ -49,11 +48,6 @@ return <div>Loading...</div>;
                 <li key={item.id} >
                 <img className='container-pic' alt='map data' src={item.images[0].url}></img>
                         <div className='park-name card-name'>{item.fullName}</div>
-                        <div className='address-city'>{item.addresses[0].city}
-                            <span className='address-state'>, {item.addresses[0].stateCode}</span>
-                            <span className='address-postal'>, {item.addresses[0].postalCode}</span>
-                        </div>
-                        <div className="physical-address">{item.addresses[0].line1}</div>
                         <div className='urlBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
                         <div className='park-desc card-desc'>{item.description}</div>
                 </li>
