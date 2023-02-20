@@ -60,6 +60,8 @@
     font-size: 20px;
     text-align: center;
     border-radius: 6px;
+    text-decoration: none;
+    color: black;
 }
 
 .home-btn:hover {

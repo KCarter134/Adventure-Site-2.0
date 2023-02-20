@@ -9,10 +9,10 @@ export default function Home() {
             <div className='home-btn-cont-wrapper'></div>
                 <div className='home-btn-cont'>
                     <div className='btn-holding-cont'>
-                        <Link to="./profile" type="button" className="store-favorites-btn home-btn"><div className='home-btn-text'>View Favorites</div></Link>
-                        <div type="button" className="trip-plan-btn home-btn"><div className='home-btn-text'>Random Trip</div></div>
                         <Link to="./signup" type="button" className="random-btn home-btn"><div className='home-btn-text'>Sign Up</div></Link>
                         <Link to="./login" type="button" className="random-btn home-btn"><div className='home-btn-text'>Login</div></Link>
+                        <Link to="./profile" type="button" className="store-favorites-btn home-btn"><div className='home-btn-text'>View Favorites</div></Link>
+                        <div type="button" className="trip-plan-btn home-btn"><div className='home-btn-text'>Random Trip</div></div>  
                         <div type="button" className="random-btn home-btn"><div className='home-btn-text'>Under Construction</div></div>
                         <div type="button" className="random-btn home-btn"><div className='home-btn-text'>Under Construction</div></div>
                     </div>
