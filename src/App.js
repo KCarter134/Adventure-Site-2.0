@@ -11,6 +11,7 @@ import TravelEvents from './components/travelEvents'
 import TravelPlaces from './components/travelPlaces'
 import TravelPeople from './components/travelPeople'
 import TravelTours from './components/travelTours'
+import LocalTravel from './components/localTravel'
 import './index.css';
 
 export default function App() {
@@ -30,6 +31,7 @@ export default function App() {
             <Route path='/travelPlaces' element={<TravelPlaces />} />
             <Route path='/travelPeople' element={<TravelPeople />} />
             <Route path='/travelTours' element={<TravelTours />} />
+            <Route path='/localTravel' element={<LocalTravel />} />
           </Routes>
         </div>
         </>

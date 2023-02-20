@@ -10,7 +10,10 @@ function Navbar() {
             Homepage
           </Link>
           <Link to="/travel" className="title">
-            Travel
+            National Travel
+          </Link>
+          <Link to="/localTravel" className="title">
+            Local Travel
           </Link>
           <Link to="/festivalPage" className="title">
             Concerts
