@@ -66,9 +66,16 @@
     color: black;
     text-align: center;
     font-weight: 600;
+    background: transparent;
+    border: none;
 }
 
 .login-f-btns:hover {
     cursor: pointer;
     color: aqua;
+}
+
+#signup-submit {
+    font-size: 20px;
+    width: 10vw;
 }

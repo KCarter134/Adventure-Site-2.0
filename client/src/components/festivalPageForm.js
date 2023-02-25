@@ -8,10 +8,10 @@ function FestivalForm() {
       const handleSubmit = (e) => {
           e.preventDefault();
     
-          Axios.post('http://localhost:3000/insert', {
-              city: city,
-              venue: venue
-          })
+    //       Axios.post('http://localhost:3000/insert', {
+    //           city: city,
+    //           venue: venue
+    //       })
       }
     
       return (
