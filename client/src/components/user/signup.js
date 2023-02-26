@@ -1,6 +1,6 @@
 import mountainPic from '../../assets/pictures/mountain.jpg'
 import { Link } from 'react-router-dom'
-import React, { useState, useRef } from 'react'; 
+import React, { useState } from 'react'; 
 
 
 export default function Signup() {
