@@ -3,23 +3,23 @@ import React, { useState, useEffect } from 'react';
 // must hit SUBMIT and then refresh page 
 
 function FestivalForm() {
-    const [QueryInput, setQueryInput] = useState("");
-    const [ submittedInput, setSubmittedInput ] = useState(null)
-    const [data, setData] = useState([]);
+    const [ QueryInput, setQueryInput ] = useState("");
+    const [ submittedInput, setSubmittedInput ] = useState("Raleigh")
+    const [ data, setData ] = useState([]);
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault() 
-        console.log(QueryInput) 
-        console.log(data)
-        setSubmittedInput(QueryInput)
+    // const handleSubmit = (e) => {
+    //     e.preventDefault() 
+    //     console.log(QueryInput) 
+    //     console.log(data)
+    //     setSubmittedInput(QueryInput)
         
-        setQueryInput(""); 
-    }
+    //     setQueryInput(""); 
+    // }
 
-    const handleChange = (event) => {
-            setQueryInput(event.target.value)
-        }
+    // const handleChange = (event) => {
+    //         setQueryInput(event.target.value)
+    // }
     
 
     const apiData = () => {
@@ -41,12 +41,43 @@ function FestivalForm() {
                     .catch(error => console.log('search failed')) 
             })
     } 
- 
+
+
+    const handleSubmit = (e) => {
+            e.preventDefault() 
+            apiData();
+            console.log(QueryInput) 
+            console.log(data)
+            setSubmittedInput(QueryInput)
+            
+            setQueryInput(""); 
+        }
+    
+        const handleChange = (event) => {
+                setQueryInput(event.target.value)
+        }
+    
+
+
     useEffect(() => { 
-        apiData();   
         
+        apiData();   
         setSubmittedInput("") // clears text input
+
     }, []);  
+
+    // const handleSubmit = (e) => {
+    //         e.preventDefault() 
+    //         console.log(QueryInput) 
+    //         console.log(data)
+    //         setSubmittedInput(QueryInput)
+            
+    //         setQueryInput(""); 
+    //     }
+    
+    //     const handleChange = (event) => {
+    //             setQueryInput(event.target.value)
+    //     }
 
     
       return (
