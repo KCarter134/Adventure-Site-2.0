@@ -4,49 +4,112 @@ body {
 
 .web-title {
     position: absolute;
-    top: 25px;
-    left: 25px;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
     margin: 0;
     z-index: 999;
+    font-size: 14vw;
+    font-weight: 600;
 }
 
 .city-pic {
+    position: sticky;
     width: 100vw;
     z-index: 1;
-    height: 100%;
+    height: 80vh;
 }
 
 #search-section {
     /* color: white; */
     text-align: center;
     margin-bottom: 100px;
-    /* background-color: black; */
+    background-color: black;
 }
 
-.search-bar {
-    height: 40px;
-    font-size: 30px;
-    width: 40vw;
+
+
+#form-background {
+    width: 70vw;
+    height: 52vh;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    z-index: 2;
+    opacity: 86%;
+    border-radius: 10px;
+}
+
+#form-cont {
+    width: 60vw;
+    height: 52vh;
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    border-radius: 10px;
 
 }
 
 .login-form form {
     display: flex;
     justify-content: center;
+    margin-top: 25px;
+}
+
+.search-bar {
+    height: 40px;
+    font-size: 25px;
+    width: 40vw;
+    border-radius: 5px;
 }
 
 .concert-srch-btn{
     width: 100px;
     font-size: larger;
     height: 40px;
+    border-radius: 5px;
+}
+
+.idea-card-cont {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.idea-link {
+    text-decoration: none;
+    color: white;
+    width: 12vw;
+    height: 25vh;
+}
+
+.idea-card {
+    display: flex;
+    flex-direction: column;
+    margin-top: 70px;
+    height: 30vh;  
+}
+.idea-pic {
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+}
+
+.idea-card-text {
+    position: relative;
+    color: white;
+    margin-bottom: -500px;
 }
 
                                                 /* dynamic cards */
 
 .cards-cont {
-    margin-top: 100px;
+    margin-top: 230px;
     display: grid;
-    grid-template-columns: 15% 15% 15% 15%;
+    grid-template-columns: 16% 16% 16% 16%;
     gap: 30px;
     justify-content: center;
 
@@ -82,9 +145,39 @@ body {
 
                                                     /* Festival Form Info */
 
-
+@media (min-width: 1775px) {
+    .web-title {
+        font-size: 260px;
+    }
+}
 
 @media (max-width: 1300px) {
+    .web-title {
+        font-size: 140px;
+        top: 30%;
+    }
+    .search-bar {
+        height: 40px;
+        font-size: 25px;
+        width: 50vw;
+    
+    }
+    .concert-srch-btn{
+        width: 100px;
+        font-size: larger;
+        height: 40px;
+    }
+    .login-form form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .idea-card {
+        margin-top: 40px;
+        width: 12vw;
+        height: 18vh;
+        border: 2px solid white;
+    }
     .cards-cont { 
         grid-template-columns: repeat(3, 1fr); 
         margin-left: 5%;
@@ -99,6 +192,23 @@ body {
   }
 
 @media (max-width: 700px) {
+    .web-title {
+        font-size: 14vw;
+        top: 40%;
+    }
+    #form-background {
+        width: 100%;
+    }
+    
+    #form-cont {
+        width: 100%;
+        height: 52vh;
+    
+    }
+    .idea-card,
+    .idea-link {
+        width: 20vw;
+    }
     .cards-cont { grid-template-columns: repeat(2, 1fr); }
     .card-body {font-size: 15px;}
     #user-input {

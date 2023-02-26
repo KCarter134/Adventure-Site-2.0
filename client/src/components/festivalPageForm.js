@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import pic1 from "../assets/pictures/concPic1.jpg"
+import pic7 from "../assets/pictures/concPic7.jpg"
+import pic10 from "../assets/pictures/concPic10.jpg"
 
 
 function FestivalForm() {
@@ -21,12 +24,12 @@ function FestivalForm() {
                         return result.json();
                     })
                     .then(data => {
-                        console.log(data.events[0].performers[0].image); // array of events based on name given in above api
+                        // console.log(data.events[0].performers[0].image); // array of events based on name given in above api
                         console.log(data.events)
                         setData(data.events);
                         {data?.events?.map((performer, i) => {
                             return performer.performers.map((image, i) => {
-                                console.log(image)  
+                                // console.log(image) // pulls first image in data.events array NEEDS FIXED 
                                 return setPictures(image)      
                                        
                                 })
@@ -44,8 +47,8 @@ function FestivalForm() {
     const handleSubmit = (e) => {  
         e.preventDefault() 
         apiData(e);
-        console.log(pictures.image[e])
-        console.log(pictures[e])
+        // console.log(pictures.image)
+        // console.log(pictures)
         console.log(QueryInput) 
         setQueryInput(""); 
     }
@@ -54,27 +57,45 @@ function FestivalForm() {
             setQueryInput(event.target.value)
     }
 
-    // const apiLoop = () => {
-    //     console.log(pictures)
-    // };
-    // apiLoop();
-
-    // console.log(data)   returns data.events AFTER third scan through
       return (
-        <div className="App"> 
-          <header className="app-header"> 
+        <section className="festival-form-main"> 
             <div className="login-form">
-                <form onSubmit={(e) => {handleSubmit(e)}}>
-                    <input 
-                      className = "search-bar" 
-                      type="text"
-                      name='city'
-                      value={QueryInput}
-                      placeholder="Enter a city"
-                      onChange={handleChange}
-                    />
-                    <input className='concert-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
-                </form>
+                <div id='form-background'></div>
+                <div id='form-cont'>
+                    <form onSubmit={(e) => {handleSubmit(e)}}>
+                        <input 
+                          className = "search-bar" 
+                          type="text"
+                        name='city'
+                        value={QueryInput}
+                          placeholder="Enter a city"
+                          onChange={handleChange}
+                        />
+                        <input className='concert-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
+                    </form>
+                    <section className='idea-card-cont'>
+
+                        <div className='idea-card'>
+                            <a className='idea-link' href="#"> 
+                                <img className='idea-pic' src={pic1} alt='' />
+                                <div className='idea-card-text'>Attend local concerts →</div>
+                            </a>
+                        </div>
+                        <div className='idea-card'>
+                            <a className='idea-link' href="#">
+                                <img className='idea-pic' src={pic7} alt='' />
+                                <div className='idea-card-text'>Attend local festivals →</div>
+                            </a>
+                        </div>                 
+                        <div className='idea-card'>
+                            <a className='idea-link' href="#">
+                                <img className='idea-pic' src={pic10} alt='' />
+                                <div className='idea-card-text'>View music in your area →</div>
+                            </a>
+                        </div>
+                       
+                    </section>
+                </div>
                 <section className='cards-cont'> 
                 {data.map(item => [
                 <li className='card-body' key={item.id}>
@@ -94,8 +115,7 @@ function FestivalForm() {
                  ])}
                 </section>
             </div>
-          </header>
-        </div>
+        </section>
       );
 }
     
