@@ -1,14 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import  pic1  from "../assets/pictures/concPic1.jpg"
-// import  pic2  from "../assets/pictures/concPic2.jpg"
-// import  pic3  from "../assets/pictures/concPic3.jpg"
-// import  pic4  from "../assets/pictures/concPic4.jpg"
-// import  pic5  from "../assets/pictures/concPic5.jpg"
-// import  pic6  from "../assets/pictures/concPic6.jpg"
-// import  pic7  from "../assets/pictures/concPic7.jpg"
-// import  pic8  from "../assets/pictures/concPic8.jpg"
-// import  pic9  from "../assets/pictures/concPic9.jpg"
-// import  pic10  from "../assets/pictures/concPic10.jpg"
+import React, { useState } from 'react';
 
 
 function FestivalForm() {
@@ -17,7 +7,6 @@ function FestivalForm() {
     const [ QueryInput, setQueryInput ] = useState("");
     const [ data, setData ] = useState([]);
     const [ pictures, setPictures ] = useState([]);
-    // let picArr = [{pic1},{pic2},{pic3},{pic4},{pic5},{pic6},{pic7},{pic8},{pic9},{pic10}]
 
     const apiData = () => {
         fetch(`https://api.openweathermap.org/geo/1.0/direct?q= ${QueryInput} &limit=1&appid=22c381336de0f996a4083c7ecafd3174`)
@@ -65,10 +54,10 @@ function FestivalForm() {
             setQueryInput(event.target.value)
     }
 
-    const apiLoop = () => {
-        console.log(pictures)
-    };
-    apiLoop();
+    // const apiLoop = () => {
+    //     console.log(pictures)
+    // };
+    // apiLoop();
 
     // console.log(data)   returns data.events AFTER third scan through
       return (
@@ -94,7 +83,7 @@ function FestivalForm() {
                     {/* <div key={3} className='concert-perf'>{item.venue.display_address}</div>  */}
                     {data?.events?.map((performer, i) => {
                         return performer.performers.map((image, i) => {
-                            return <img src={image} alt=""/>;
+                            return <img src={pictures.image} alt=""/>;
                         });
                         })}
                     <div key={3} className='c-card concert-time'>{item.datetime_local}</div>
