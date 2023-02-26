@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import cityPic from '../../assets/pictures/city.jpg'
 import FestivalPageForm from '../festivalPageForm'
 
 export default function festivalPage() { 
+    
     
     return (
         <section className='homepage'>
