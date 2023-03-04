@@ -48,7 +48,7 @@ function TravelCamping() {
             },
         )
     };
-    console.log(pictures)
+    console.log(pictures.url)
 
     
     return (
