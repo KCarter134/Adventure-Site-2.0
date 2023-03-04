@@ -18,7 +18,7 @@ function TravelCamping() {
     const [data, setItems] = useState([]);
 
     useEffect(() => {
-        fetch("https://developer.nps.gov/api/v1/campgrounds?limit=75&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
+        fetch("https://developer.nps.gov/api/v1/campgrounds?limit=50&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
@@ -55,7 +55,7 @@ return <div>Loading...</div>;
             <div className='mapped-info-inner camp-inner'>
             {data.map(item => (
                 <li key={item.id}>
-                <img className='container-pic' alt='card-img' src={item.images}></img>
+                <img className='container-pic' alt='card-img' src={item.images[0]}></img>
                         <div className='camp-name card-title'>{item.name}</div>
                         <div className='camp-sites'>Campsites Available: {item.campsites.totalSites}</div>
                         <div className='camp-desc card-desc'>{item.description}</div>
