@@ -17,3 +17,11 @@
     margin-top: 60px;
     box-shadow: inset 0 0 8px 0 black;
 }
+
+.camping-form {
+    z-index: 999;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+}

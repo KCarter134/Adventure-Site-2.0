@@ -1,36 +1,55 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import campingPic from "../../assets/pictures/camping.jpg"
 import "../../utils/helpers"
 
 function TravelCamping() {
 
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [data, setItems] = useState([]);
+    // const [error, setError] = useState(null);
+    // const [isLoaded, setIsLoaded] = useState(false);
+    const [data, setData] = useState([]);
+    const [ StateInput, setStateInput ] = useState("");
+    const [ pictures, setPictures ] = useState([])
 
-    useEffect(() => {
-        fetch("https://developer.nps.gov/api/v1/campgrounds?limit=75&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
+
+ const handleSubmit = (e) => {  
+            e.preventDefault() 
+            campingData(e);
+            console.log(StateInput) 
+            console.log(pictures.url)
+        }
+        
+        const handleChange = (event) => {
+            setStateInput(event.target.value)
+        }
+
+    const campingData = () => {
+        fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=${StateInput}&fields=images&limit=25&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
             .then(res => res.json())
             .then((result) => {
-                setIsLoaded(true);
-                setItems(result.data);
-                console.log(result.data)
+                // setIsLoaded(true);
+                setData(result.data);
+                console.log(result.data);
+                console.log(StateInput)
+                // results?.data?.map((image, i) => {
+                //     return image.images.map((img, i) => {
+                //         console.log(img, i)
+                //         return setPictures(img) 
+                //         }
+                //  )});
+                result?.data?.map((image, i) => {
+                    return image.images.map((img, i) => {
+                        console.log(img)
+                        return setPictures(img)      
+                               
+                        })
+                    }
+                );
             },
-            (error) => {
-                setIsLoaded(true);
-                setError(error);
-            }
-            )
-        }, [])
+        )
+    };
+    console.log(pictures)
 
-
-    
-if (error) {
-return <div>Error: {error.message}</div>;
-} else if (!isLoaded) {
-return <div>Loading...</div>;
-} else {
     
     return (
         <section className='mapped-info-cont'>
@@ -45,11 +64,23 @@ return <div>Loading...</div>;
                     <Link to="/TravelTours" className='nav'>Tours</Link>
                 </div>
             </div>
+
+            <form className='camping-form' onSubmit={(e) => {handleSubmit(e)}}>
+                <input 
+                    type="text" 
+                    className='camp-input'
+                    name='stateCode'
+                    value={StateInput}
+                    placeholder="state of camping destination"
+                    onChange={handleChange}
+                    />
+                <input className='concert-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
+            </form>
  
             <div className='mapped-info-inner camp-inner'>
             {data.map(item => (
                 <li key={item.id}>
-                <img className='container-pic' alt='card-img' src={item.images}></img>
+                    <img className='container-pic' alt='card-img' src={pictures.url}></img>
                         <div className='camp-name card-title'>{item.name}</div>
                         <div className='camp-sites'>Campsites Available: {item.campsites.totalSites}</div>
                         <div className='camp-desc card-desc'>{item.description}</div>
@@ -60,7 +91,7 @@ return <div>Loading...</div>;
             
         </section>
     );
-  }
+  
 }
 
 export default TravelCamping;
