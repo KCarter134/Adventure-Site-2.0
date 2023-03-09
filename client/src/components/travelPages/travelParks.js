@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import parkPic from "../../assets/pictures/park.jpg";
 
@@ -7,28 +7,36 @@ function TravelParks() {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [data, setItems] = useState([]);
+    const [ StateInput, setStateInput ] = useState("");
+    const [data, setData] = useState([]);
 
-    useEffect(() => {
-        fetch("https:developer.nps.gov/api/v1/parks?limit=50&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
+    const handleSubmit = (e) => {  
+            e.preventDefault() 
+            parkData(e);
+            console.log(StateInput) 
+        }
+        
+    const handleChange = (event) => {
+        setStateInput(event.target.value)
+    }
+
+    const parkData = () => {
+        fetch(`https:developer.nps.gov/api/v1/parks?stateCode=${StateInput}&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
-                setItems(result.data);
-                // console.log(result.data)
+                setData(result.data);
+                console.log(result.data)
             },
             (error) => {
                 setIsLoaded(true);
                 setError(error);
+                console.log("error")
             }
             )
-        }, [])
+        }
     
-if (error) {
-return <div>Error: {error.message}</div>;
-} else if (!isLoaded) {
-return <div>Loading...</div>;
-} else {
+
     return (
         <section className='mapped-info-cont'>
             <img src={parkPic} className='park-pic card-pic' alt='parkpic'></img>
@@ -42,6 +50,18 @@ return <div>Loading...</div>;
                     <Link to="/TravelTours" className='nav'>Tours</Link>
                 </div>
             </div>
+
+            <form className='camping-form' onSubmit={(e) => {handleSubmit(e)}}>
+                <input 
+                    type="text" 
+                    className='camp-input'
+                    name='stateCode'
+                    value={StateInput}
+                    placeholder="state of camping destination"
+                    onChange={handleChange}
+                    />
+                <input className='concert-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
+            </form>
 
             <div className='mapped-info-inner'>
             {data.map(item => (
@@ -60,7 +80,6 @@ return <div>Loading...</div>;
             </div>
         </section>
     );
-  }
 }
 
 export default TravelParks;
