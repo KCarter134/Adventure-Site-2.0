@@ -34,16 +34,23 @@ function TravelCamping() {
                 result?.data?.map((image, i) => {
                     return image.images.map((img, i) => {
                         console.log(img)
-                        return setPictures(img)      
-                               
+                        return setPictures(img)          
                         })
                     }
                 );
             },
         )
     };
-    console.log( pictures )
-
+    
+    const getImage = (item) => {
+        try{
+            if(item.images != null){
+                return item.images[0].url;
+            }
+        }catch{
+            return pictures.url;
+        }
+    }
     
     return (
         <section className='mapped-info-cont'>
@@ -74,7 +81,7 @@ function TravelCamping() {
             <div className='mapped-info-inner camp-inner'>
             {data.map(item => (
                 <li key={item.id}>
-                    <img className='container-pic' alt='card-img' src={ {pictures}[0] }></img>
+                    <img className='container-pic' alt='card-img' src={getImage(item)}></img>
                         <div className='camp-name card-title'>{item.name}</div>
                         <div className='camp-sites'>Campsites Available: {item.campsites.totalSites}</div>
                         <div className='camp-desc card-desc'>{item.description}</div>
