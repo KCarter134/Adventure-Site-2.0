@@ -18,6 +18,9 @@ function Navbar() {
           <Link to="/festivalPage" className="title">
             Concerts
           </Link>
+          <Link to="/signup" type="button" className="title">
+            Sign Up/Login
+          </Link>
         </nav>
       </section>
     </header>

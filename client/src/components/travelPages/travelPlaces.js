@@ -8,6 +8,8 @@ function TravelParks() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setItems] = useState([]);
+    const [ pictures, setPictures ] = useState({})
+
 
     useEffect(() => {
         fetch("https://developer.nps.gov/api/v1/places?limit=75&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
@@ -16,6 +18,12 @@ function TravelParks() {
                 setIsLoaded(true);
                 setItems(result.data);
                 console.log(result.data)
+                result?.data?.map((image, i) => {
+                    return image.images.map((img, i) => {
+                        return setPictures(img)          
+                        })
+                    }
+                );
             },
             (error) => {
                 setIsLoaded(true);
@@ -23,6 +31,16 @@ function TravelParks() {
             }
             )
         }, [])
+
+    const getImage = (item) => {
+        try{
+            if(item.images != null){
+                return item.images[0].url;
+            }
+        }catch{
+            return pictures.url;
+        }
+    }
     
 if (error) {
 return <div>Error: {error.message}</div>;
@@ -46,7 +64,7 @@ return <div>Loading...</div>;
 
             {data.map(item => (
                 <li key={item.id} >
-                <img className='container-pic' alt='map data' src={item.images.url}></img>
+                <img className='container-pic' alt='map data' src={getImage(item)}></img>
                         <div className='park-name card-name'>{item.title}</div> 
                         <div className='card-desc'>{item.listingDescription}</div>  
                         <div className='urlBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>

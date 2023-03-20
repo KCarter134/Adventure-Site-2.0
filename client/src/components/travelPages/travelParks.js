@@ -51,16 +51,16 @@ function TravelParks() {
                 </div>
             </div>
 
-            <form className='camping-form' onSubmit={(e) => {handleSubmit(e)}}>
+            <form className='national-form' onSubmit={(e) => {handleSubmit(e)}}>
                 <input 
                     type="text" 
-                    className='camp-input'
+                    className='national-input'
                     name='stateCode'
                     value={StateInput}
-                    placeholder="state of camping destination"
+                    placeholder="state of national park destination"
                     onChange={handleChange}
                     />
-                <input className='concert-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
+                <input className='national-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
             </form>
 
             <div className='mapped-info-inner'>

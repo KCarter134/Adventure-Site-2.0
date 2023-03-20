@@ -18,15 +18,13 @@ import './index.css';
 
 export default function App() {
   return (
-        <>
-        <Navbar />
-        
+
         <div className="App">
           <Routes>
             <Route path="/Adventure-Site-2.0" element={<Home />}/>
-            <Route path="/" element={<Home />}/>
-            <Route path="/festivalPage" element={<FestivalPage />}/>
-            <Route path="/nationalTravel" element={<NationalTravel />}/>
+            <Route path="/" element={<><Navbar /> <Home /></>}/>
+            <Route path="/festivalPage" element={<><Navbar /> <FestivalPage  /></>}/>
+            <Route path="/nationalTravel" element={<><Navbar /> <NationalTravel /></>}/>
             <Route path='/travelParks' element={<TravelParks />} />
             <Route path='/travelCamping' element={<TravelCamping />} />
             <Route path='/travelEvents' element={<TravelEvents />} />
@@ -35,11 +33,11 @@ export default function App() {
             <Route path='/travelTours' element={<TravelTours />} />
             <Route path='/localTravel' element={<LocalTravel />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
+            <Route path='/login' element={<><Navbar /> <Login /></>} />
+            <Route path='/signup' element={<><Navbar /> <Signup /></>} />
           </Routes>
         </div>
-        </>
+  
 
   );
 }

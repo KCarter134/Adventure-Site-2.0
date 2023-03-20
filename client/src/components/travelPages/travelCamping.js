@@ -1,22 +1,19 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import starsPic from "../../assets/pictures/stars.jpg"
-import "../../utils/helpers"
+import "../../utils/helpers";
 
 function TravelCamping() {
 
     // const [error, setError] = useState(null);
     // const [isLoaded, setIsLoaded] = useState(false);
-    const [data, setData] = useState([]);
+    const [ data, setData ] = useState([]);
     const [ StateInput, setStateInput ] = useState("");
     const [ pictures, setPictures ] = useState({})
-
 
     const handleSubmit = (e) => {  
                 e.preventDefault() 
                 campingData(e);
-                console.log(StateInput) 
-                console.log(pictures.url)
             }
             
     const handleChange = (event) => {
@@ -24,7 +21,7 @@ function TravelCamping() {
     }
 
     const campingData = () => {
-        fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=${StateInput}&fields=images&limit=25&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
+        fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=${StateInput}&fields=images&limit=800&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
             .then(res => res.json())
             .then((result) => {
                 // setIsLoaded(true);
@@ -33,7 +30,6 @@ function TravelCamping() {
                 console.log(StateInput)
                 result?.data?.map((image, i) => {
                     return image.images.map((img, i) => {
-                        console.log(img)
                         return setPictures(img)          
                         })
                     }
@@ -51,6 +47,18 @@ function TravelCamping() {
             return pictures.url;
         }
     }
+
+    const getAddress = (item) => {
+        try{
+            if(item.addresses != null){
+                let address = ""
+                address += item.addresses[0].city + ", " + item.addresses[0].stateCode + " " + item.addresses[0].postalCode;
+                return address
+            } 
+        }catch {
+            return console.log("na")
+        }
+    }
     
     return (
         <section className='mapped-info-cont'>
@@ -66,16 +74,16 @@ function TravelCamping() {
                 </div>
             </div>
 
-            <form className='camping-form' onSubmit={(e) => {handleSubmit(e)}}>
+            <form className='national-form' onSubmit={(e) => {handleSubmit(e)}}>
                 <input 
                     type="text" 
-                    className='camp-input'
+                    className='national-input'
                     name='stateCode'
                     value={StateInput}
                     placeholder="state of camping destination"
                     onChange={handleChange}
                     />
-                <input className='concert-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
+                <input className='national-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
             </form>
  
             <div className='mapped-info-inner camp-inner'>
@@ -83,6 +91,7 @@ function TravelCamping() {
                 <li key={item.id}>
                     <img className='container-pic' alt='card-img' src={getImage(item)}></img>
                         <div className='camp-name card-title'>{item.name}</div>
+                        <div className='camp-address card-title'>{getAddress(item)}</div>
                         <div className='camp-sites'>Campsites Available: {item.campsites.totalSites}</div>
                         <div className='camp-desc card-desc'>{item.description}</div>
                         <div className='camp-urlBtn urlBtn'><a href={item.url} className='camp-url card-url'>Go To Website</a></div>                        

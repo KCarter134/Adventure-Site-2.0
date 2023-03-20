@@ -4,7 +4,7 @@
 
 .pic-container {
     width: 100%;
-    height: 80vh;
+    height: 100vh;
     margin: 0;
 }
 
@@ -14,6 +14,7 @@
 }
 
 .front-info {
+    display: none; /* container below picture... keep hidden until info can be rendered */
     position: relative;
     z-index: 3;
     height: 70vh;
@@ -21,110 +22,111 @@
     margin-top: -3px;
 }
 
-.home-btn-cont-wrapper {
-    position: absolute;
-    top: 5vh;
-    left: 5vh;
-    width: 300px;
-    height: 68vh;
-    border: 3px solid rgb(0, 0, 0);
-    background-color: white;
-    border-radius: 7px;
-    opacity: 34%;
-}
-
-.home-btn-cont {
-    position: absolute;
-    top: 5vh;
-    left: 5vh;
-    width: 300px;
-    height: 68vh;
-    border: 3px solid rgb(0, 0, 0);
-    border-radius: 7px;
-}
-
 .btn-holding-cont {
-    position: relative;
-    margin-top: 47%;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 4%;
+    transform: translate(1%, -50%);
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     text-align: center;
-    align-items: center;
+    height: 80vh;
 }
 
 .home-btn {
-    width: 200px;
-    height: 50px;
-    border: 2px solid black;
-    margin-top: 20px;
-    font-size: 20px;
-    text-align: center;
-    border-radius: 6px;
     text-decoration: none;
-    color: black;
-}
-
-.home-btn:hover {
-    box-shadow: inset 1px 1px 8px 1px black;
+    color: white;
+    width: 500px;
+    height: 250px;
+    border-radius: 10px;
+    margin: 50px;
 }
 
 .home-btn-text {
-    padding: 12px;
+    font-size: 30px;
 }
 
+.home-display {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    -moz-box-shadow: 0 0 18px #ccc;
+    -webkit-box-shadow: 0 0 18px #ccc;
+    box-shadow: 0 0 18px #ccc;
+}
+
+.randomize-cont {
+    position: absolute;
+    z-index: 999;
+    top: 53%;
+    right: 4%;
+    transform: translateY(-50%);
+    height: 72vh;
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.random-trip-cont,
+.random-concert-cont {
+    width: 25vw;
+    border: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.randomize-btn {
+    height: 40px;
+    font-size: 20px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.random-card-cont {
+    border: 1px solid red;
+    height: 60vh;
+    margin-top: 50px;
+}
 
 @media (max-width: 1500px) {
+    .home-btn {
+        width: 400px;
+        height: 250px;
+        margin: 40px;
+    }
+}
 
-    .inf-dis {
-        color: white;
-        font-size: 20px;
-        padding: 15px;
-        border: 1px solid white;
-        border-radius: 8px;
+@media (max-width: 1200px) {
+    .btn-holding-cont {
+        left: 0;
     }
     
+    .home-btn {
+        width: 300px;
+        height: 250px;
+        margin: 40px;
+    }
 }
 
 @media (max-width: 700px) {
-
-    .info-flex-container {
+    .btn-holding-cont {
+        position: absolute;
+        z-index: 999;
+        top: 30%;
+        left: 0;
         display: flex;
         flex-direction: column;
-        gap: 50px;
-        margin-left: 10px;
-        margin-right: 10px;
-        justify-content: space-evenly;
-        margin-top: 70px;
-        text-align: center;
+        justify-content: center;
     }
-
-
-    .inf-dis {
-        color: white;
-        font-size: 20px;
-        padding: 15px;
-
+    .home-btn {
+        width: 80vw;
+        height: 125px;
     }
-    
 }
 
 @media (max-width: 300px) {
 
-    .info-flex-container {
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-        margin-left: 10px;
-        margin-right: 10px;
-        justify-content: space-evenly;
-        margin-top: 70px;
-        text-align: center;
-    }
-
-    .inf-dis {
-        color: white;
-        font-size: 13px;
-        padding: 15px;
-    }
-    
 }

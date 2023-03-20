@@ -1,25 +1,44 @@
 import React from 'react'
-import homePic from '../../assets/pictures/homePic.jpg'
+import homePic from '../../assets/pictures/northernlights.jpg'
 import { Link } from 'react-router-dom'
+import nationalPic from '../../assets/pictures/nationalParks.jpg'
+import stateParksPic from '../../assets/pictures/stateParks.jpg'
+import concertPic from '../../assets/pictures/concert.jpg'
 
 export default function Home() {
+
+
     return(
         <section className='pic-container'>
             <img src={homePic} alt="" className='homepic' />
-            <div className='home-btn-cont-wrapper'></div>
-                <div className='home-btn-cont'>
-                    <div className='btn-holding-cont'>
-                        <Link to="./signup" type="button" className="random-btn home-btn"><div className='home-btn-text'>Sign Up</div></Link>
-                        <Link to="./login" type="button" className="random-btn home-btn"><div className='home-btn-text'>Login</div></Link>
-                        <Link to="./profile" type="button" className="store-favorites-btn home-btn"><div className='home-btn-text'>View Favorites</div></Link>
-                        <div type="button" className="trip-plan-btn home-btn"><div className='home-btn-text'>Random Trip</div></div>  
-                        <div type="button" className="random-btn home-btn"><div className='home-btn-text'>Under Construction</div></div>
-                        <div type="button" className="random-btn home-btn"><div className='home-btn-text'>Under Construction</div></div>
-                    </div>
+            <p className='btn-holding-cont'>
+                <Link to="/nationalTravel" type='button' className='home-btn'>
+                    <div className='home-btn-text'>Travel Nationally</div>
+                    <img src={nationalPic} alt='' className='home-display' />
+                </Link>
+                {/* <Link to="/travelCamping" type='button' className='home-btn'>
+                    <img src={travelCampingPic} alt='' className='home-display' />
+                    <div className='home-btn-text'>Go Camping</div>
+                </Link> */}
+                <Link to="/localTravel" type="button" className="store-favorites-btn home-btn">
+                    <div className='home-btn-text'>Travel Locally</div>
+                    <img src={stateParksPic} alt='' className='home-display' />
+                </Link>
+                <Link to="/festivalPage" type='button' className='home-btn concert-img'>
+                    <div className='home-btn-text'>Attend Concerts</div>
+                    <img src={concertPic} alt='' className='home-display' />
+                </Link>
+            </p>
+            <p className='randomize-cont'>
+                <div className='random-trip-cont'>
+                    <input type="submit" value="Random Trip" className='randomize-btn rn-trip' />
+                    <div className='random-card-cont'></div>
                 </div>
-             <div className='info-module'>
-            <div className='info-flex-container'></div></div>  
-            <div className='front-info'></div> 
+                <div className='random-concert-cont'>
+                    <input type="submit" value="Random Concert" className='randomize-btn rn-concert' />
+                    <div className='random-card-cont'></div>
+                </div>
+            </p>  
         </section>
     );
 }
