@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import parkPic from "../../assets/pictures/park.jpg";
+import { stateMapping } from "../../utils/stateMapping"
 
 
 function TravelParks() {
