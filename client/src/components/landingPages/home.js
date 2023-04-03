@@ -59,18 +59,6 @@ export default function Home() {
         }
     }
 
-    // const getAddress = (item) => {
-    //     try{
-    //         if(item.addresses != null){
-    //             let address = ""
-    //             address += item.addresses[0].city + ", " + item.addresses[0].stateCode + " " + item.addresses[0].postalCode;
-    //             return address
-    //         } 
-    //     }catch {
-    //         return console.log("na")
-    //     }
-    // }
-
  console.log(park)
     return(
         <main className='home-wrapper'>
@@ -102,29 +90,29 @@ export default function Home() {
                             <input type='submit' value='Random Park' className='park-inp inp' onSubmit={handleSubmit}/>
                         </div>
                         <div className='result-field'>
-                            <div className='result1'>
-                                <img className='result-img' src={getImage(park[0])} />
-                                <p>{}</p>
-                            </div>
-                            <div className='result2'>
-                                <img className='result-img' src={getImage(park[1])} />
-                                <p></p>
-                            </div>
-                            <div className='result3'>
-                                <img className='result-img' src={getImage(park[2])} />
-                                <p></p>
-                            </div>
-                            <article>{}</article>
+                            {park.map(item => (
+                                <li key={item.id} >
+                                <img className='result-img' alt='map data' src={item.images[0].url}></img>
+                                        <div className='ran-park-name'>{item.fullName}</div>
+                                        <div className='ran-park-city'>{item.addresses[0].city}
+                                            <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
+                                            <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
+                                        </div>
+                                        <div className="ran-park-address">{item.addresses[0].line1}</div>
+                                        <div className='gotoBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
+                                        <div className='ran-park-desc'>{item.description}</div>
+                                </li>
+        ))}
                         </div>
                     </article>
-                    <article className='random-concert-cont'>
+                    {/* <article className='random-concert-cont'>
                         <div className='inp-wrap'>
                             <input type='submit' value='Random Concert' className='concert-inp inp' />
                         </div>
                         <div className='result-field'>
                             
                         </div>
-                    </article>
+                    </article> */}
                 </form>
             </section>
         </main>

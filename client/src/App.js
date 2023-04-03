@@ -25,13 +25,13 @@ export default function App() {
             <Route path="/" element={<><Navbar /> <Home /></>}/>
             <Route path="/festivalPage" element={<><Navbar /> <FestivalPage  /></>}/>
             <Route path="/nationalTravel" element={<><Navbar /> <NationalTravel /></>}/>
-            <Route path='/travelParks' element={<TravelParks />} />
-            <Route path='/travelCamping' element={<TravelCamping />} />
-            <Route path='/travelEvents' element={<TravelEvents />} />
-            <Route path='/travelPlaces' element={<TravelPlaces />} />
-            <Route path='/travelPeople' element={<TravelPeople />} />
-            <Route path='/travelTours' element={<TravelTours />} />
-            <Route path='/localTravel' element={<LocalTravel />} />
+            <Route path='/travelParks' element={<><Navbar /> <TravelParks  /></>} />
+            <Route path='/travelCamping' element={<><Navbar /> <TravelCamping  /></>} />
+            <Route path='/travelEvents' element={<><Navbar /> <TravelEvents  /></>} />
+            <Route path='/travelPlaces' element={<><Navbar /> <TravelPlaces  /></>} />
+            <Route path='/travelPeople' element={<><Navbar /> <TravelPeople  /></>} />
+            <Route path='/travelTours' element={<><Navbar /> <TravelTours  /></>} />
+            <Route path='/localTravel' element={<><Navbar /> <LocalTravel  /></>} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/login' element={<><Navbar /> <Login /></>} />
             <Route path='/signup' element={<><Navbar /> <Signup /></>} />

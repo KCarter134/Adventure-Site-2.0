@@ -88,7 +88,6 @@ section {
     border: 1px solid black;
     text-align: center;
     padding-top: 5px;
-    transform: translate(50%);
     border-radius: 3px;
     margin-top: 30px;
 }
