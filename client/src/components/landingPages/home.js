@@ -105,14 +105,14 @@ export default function Home() {
         ))}
                         </div>
                     </article>
-                    {/* <article className='random-concert-cont'>
+                    <article className='random-concert-cont'>
                         <div className='inp-wrap'>
                             <input type='submit' value='Random Concert' className='concert-inp inp' />
                         </div>
                         <div className='result-field'>
                             
                         </div>
-                    </article> */}
+                    </article>
                 </form>
             </section>
         </main>
