@@ -51,13 +51,13 @@ export default function Home() {
         return setPark(threeRandomOnes);
     }    
 
-    const getImage = (item) => {
-        try{
-            return item.images[0].url;
-        }catch{
-            return <div>no image</div>;
-        }
-    }
+    // const getImage = (item) => {
+    //     try{
+    //         return item.images[0].url;
+    //     }catch{
+    //         return <div>no image</div>;
+    //     }
+    // }
 
  console.log(park)
     return(
@@ -89,7 +89,7 @@ export default function Home() {
                         <div className='inp-wrap'>
                             <input type='submit' value='Random Park' className='park-inp inp' onSubmit={handleSubmit}/>
                         </div>
-                        <div className='result-field'>
+                        <div className='result-field res-field-top'>
                             {park.map(item => (
                                 <li key={item.id} >
                                 <img className='result-img' alt='map data' src={item.images[0].url}></img>
