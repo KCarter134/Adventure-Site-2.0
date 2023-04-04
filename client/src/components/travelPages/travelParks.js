@@ -8,7 +8,7 @@ function TravelParks() {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [ StateInput, setStateInput ] = useState("");
+    const [ StateInput, setStateInput ] = useState("MI");
     const [data, setData] = useState([]);
 
     const handleSubmit = (e) => {  

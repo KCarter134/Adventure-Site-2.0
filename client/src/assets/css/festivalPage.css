@@ -15,7 +15,7 @@ body {
 
 .city-pic {
     position: sticky;
-    width: 100vw;
+    width: 100%;
     z-index: 1;
     height: 80vh;
 }
@@ -33,7 +33,7 @@ body {
     width: 70vw;
     height: 52vh;
     position: absolute;
-    top: 50vh;
+    top: 45vh;
     left: 50%;
     transform: translateX(-50%);
     background-color: black;
@@ -106,6 +106,10 @@ body {
 
                                                 /* dynamic cards */
 
+.festival-form-main {
+    background: radial-gradient(circle, rgba(31,31,31,1) 78%, rgba(0,0,0,1) 100%);
+}
+
 .cards-cont {
     margin-top: 230px;
     display: grid;
@@ -124,6 +128,7 @@ body {
     -webkit-box-shadow: 0 0 10px rgb(0, 0, 0);
     box-shadow: 0 0 10px rgb(0, 0, 0);
     list-style-type: none;
+    background-color: rgb(177, 177, 177);
 }
 
 .concert-img {

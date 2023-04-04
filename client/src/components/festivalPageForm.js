@@ -12,11 +12,19 @@ function FestivalForm() {
     const [ pictures, setPictures ] = useState([]);
 
     const getImage = (item) => {
-    try{
-        return item.performers[0].image;
-    }catch{
-        return <div>no image</div>;
+        try{
+            return item.performers[0].image;
+        }catch{
+            return <div>no image</div>;
+        }
     }
+
+    const getAddress = (item) => {
+        try{
+            return item.venue.display_location;
+        }catch{
+            return <div>no address</div>;
+        }
     }
 
     const apiData = () => {
@@ -26,7 +34,7 @@ function FestivalForm() {
             setData(cityCoord); 
             console.log(cityCoord[0]); // name of input places into array
                                // console.log(QueryInput) returns name in input field  
-                fetch(`https://api.seatgeek.com/2/events?per_page=25&lon= ${cityCoord[0].lon} &lat= ${cityCoord[0].lat} &taxonomies.name=concert&client_id=MzEzNjU0MzZ8MTY3Mjk2NjkyNi4xMTAzMDM`)
+                fetch(`https://api.seatgeek.com/2/events?per_page=50&sort=score.desc&lon= ${cityCoord[0].lon} &lat= ${cityCoord[0].lat} &taxonomies.name=concert&client_id=MzEzNjU0MzZ8MTY3Mjk2NjkyNi4xMTAzMDM`)
                     .then(result => {
                         console.log(result.status); 
                         return result.json();
@@ -38,7 +46,6 @@ function FestivalForm() {
                         {data.events.map((performer, i) => {
                             return performer.performers.map((image, i) => {
                                 // console.log(image) // pulls first image in data.events array NEEDS FIXED 
-                                console.log(image)
                                 return setPictures(image)      
                                        
                                 })
@@ -108,9 +115,8 @@ function FestivalForm() {
                 <li className='card-body' key={item.id}>
                     <img key={1} className='c-card concert-img' alt='card-img' src={getImage(item)} />
                     <div key={2} className='c-card concert-title'>{item.title}</div>
-                    {/* <div key={3} className='concert-perf'>{item.venue.display_address}</div>  */}
-                    <div key={3} className='c-card concert-time'>{item.datetime_local}</div>
-                    <div key={4} className='c-card concert-status'>Status: {item.status}</div>
+                    <div key={3} className='concert-perf'>{getAddress(item)}</div> 
+                    <div key={4} className='c-card concert-time'>{item.datetime_local}</div>
                     <div key={5} className='c-card concert-url'><a key={6} href={item.url} className='concert-card-url'>Go To Website</a></div> 
                                           
                 </li> 
