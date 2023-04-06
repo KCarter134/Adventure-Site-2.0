@@ -13,6 +13,7 @@ export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
     const [park, setPark] = useState([]);
+    const [carouselPics, setCarouselPics] = useState([]);
 
     
     useState(() => {
@@ -56,7 +57,7 @@ export default function Home() {
     }    
 
 
-    const getImages = () => {
+    const getImages = (items) => {
         {park.map(item => (
             <li key={item.id} >
                 {item.images.map(pics => (
@@ -66,6 +67,14 @@ export default function Home() {
                 ))}
             </li>
           ))}
+          return setCarouselPics(items.url)
+    }
+
+
+    const responsive = {
+        0: {
+            items: 1
+        }
     }
 
     return(
@@ -100,10 +109,10 @@ export default function Home() {
                         <div className='result-field res-field-top'>
                             {park.map(item => (
                                 <li key={item.id} >
-                                    <AliceCarousel>
-                                        {item.images.map(pics => (
+                                    <AliceCarousel responsive={responsive}>
+                                    {item.images.map(pics => (
                                             <img key={pics.id} src={pics.url} alt='' className='result-img' />
-                                        ))}
+                                    ))}
                                     </AliceCarousel>
                                             
 

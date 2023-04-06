@@ -26,10 +26,15 @@
     font-weight: 700;
     color: white;
     text-shadow: -1.2px -1.2px 0 #000, 1.2px -1.2px 0 #000, -1.2px 1.2px 0 #000, 1.2px 1.2px 0 #000;
+    background-color: rgba(0, 0, 0, .2);
+    transition: 0.2s;
+    border-radius: 5px;
+    margin-right: 1vw;
 }
 
 .title:hover {
     color: green;
+    background-color: rgba(0, 0, 0, .4);
 }
 
 @media (max-width: 1500px) {
