@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import parkPic from "../../assets/pictures/park.jpg";
-import { stateMapping } from "../../utils/stateMapping"
+import { abbrState } from "../../utils/stateMapping"
 
 
 function TravelParks() {
@@ -12,10 +12,10 @@ function TravelParks() {
     const [data, setData] = useState([]);
 
     const handleSubmit = (e) => {  
-            e.preventDefault() 
-            parkData(e);
-            console.log(StateInput) 
-        }
+        e.preventDefault() 
+        parkData(e);
+        console.log(StateInput) 
+    }
         
     const handleChange = (event) => {
         setStateInput(event.target.value)
@@ -34,8 +34,8 @@ function TravelParks() {
                 setError(error);
                 console.log("error")
             }
-            )
-        }
+        )
+    }
     
 
     return (
@@ -77,7 +77,7 @@ function TravelParks() {
                         <div className='urlBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
                         <div className='park-desc card-desc'>{item.description}</div>
                 </li>
-        ))}
+            ))}
             </div>
         </section>
     );

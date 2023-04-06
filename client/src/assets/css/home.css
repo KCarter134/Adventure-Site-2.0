@@ -91,7 +91,8 @@
 }
 
 .result-field {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     width: 94vw;
     justify-content: center;
     gap: 50px;
@@ -127,6 +128,10 @@
     margin-bottom: 20px;
 }
 
+.wanka {
+    width: 200px;
+    height: 200px;
+}
 
 @media (max-width: 1500px) {
     .home-btn {

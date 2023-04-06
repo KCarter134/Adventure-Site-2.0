@@ -4,13 +4,15 @@ import { Link } from 'react-router-dom'
 import nationalPic from '../../assets/pictures/nationalParks.jpg'
 import stateParksPic from '../../assets/pictures/stateParks.jpg'
 import concertPic from '../../assets/pictures/concert.jpg'
+import AliceCarousel from 'react-alice-carousel';
+import "react-alice-carousel/lib/alice-carousel.css";
 
 export default function Home() {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
-    const [park, setPark] = useState([])
+    const [park, setPark] = useState([]);
 
     
     useState(() => {
@@ -26,7 +28,8 @@ export default function Home() {
                 setError(error);
                 console.log("error")
             }
-            )
+        )
+
     })
 
     const handleSubmit = (e) => {  
@@ -47,19 +50,24 @@ export default function Home() {
             randomPark = Math.floor(Math.random() * data.length)
           }
           threeRandomOnes.push(data[randomPark])
-        }        
-        return setPark(threeRandomOnes);
+        }
+    
+        setPark(threeRandomOnes);
     }    
 
-    // const getImage = (item) => {
-    //     try{
-    //         return item.images[0].url;
-    //     }catch{
-    //         return <div>no image</div>;
-    //     }
-    // }
 
- console.log(park)
+    const getImages = () => {
+        {park.map(item => (
+            <li key={item.id} >
+                {item.images.map(pics => (
+                    <li key={pics.id}>
+                        <img src={pics.url} alt='' className='result-img' />
+                    </li>
+                ))}
+            </li>
+          ))}
+    }
+
     return(
         <main className='home-wrapper'>
             <section className='pic-container'>
@@ -92,17 +100,25 @@ export default function Home() {
                         <div className='result-field res-field-top'>
                             {park.map(item => (
                                 <li key={item.id} >
-                                <img className='result-img' alt='map data' src={item.images[0].url}></img>
-                                        <div className='ran-park-name'>{item.fullName}</div>
-                                        <div className='ran-park-city'>{item.addresses[0].city}
-                                            <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
-                                            <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
-                                        </div>
-                                        <div className="ran-park-address">{item.addresses[0].line1}</div>
-                                        <div className='gotoBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
-                                        <div className='ran-park-desc'>{item.description}</div>
+                                    <AliceCarousel>
+                                        {item.images.map(pics => (
+                                            <img key={pics.id} src={pics.url} alt='' className='result-img' />
+                                        ))}
+                                    </AliceCarousel>
+                                            
+
+                                            
+                                <div className='ran-park-name'>{item.fullName}</div>
+                                <div className='ran-park-city'>{item.addresses[0].city}
+                                    <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
+                                    <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
+                                </div>
+                                <div className="ran-park-address">{item.addresses[0].line1}</div>
+                                <div className='gotoBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
+                                <div className='ran-park-desc'>{item.description}</div>
                                 </li>
-        ))}
+                              ))}
+                            {/* DO NOT ADD A SEMI-COLON ----- it adds margin to the right...??????? */}
                         </div>
                     </article>
                     <article className='random-concert-cont'>
@@ -117,4 +133,5 @@ export default function Home() {
             </section>
         </main>
     );
+    
 }
