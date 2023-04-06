@@ -111,7 +111,9 @@ export default function Home() {
                                 <li key={item.id} >
                                     <AliceCarousel responsive={responsive}>
                                     {item.images.map(pics => (
+                                        <div className='carousel-pic-wrapper'>
                                             <img key={pics.id} src={pics.url} alt='' className='result-img' />
+                                        </div>    
                                     ))}
                                     </AliceCarousel>
                                             
