@@ -100,14 +100,16 @@
 }
 
 .result-field li {
-    width: 300px;
-    display: flex;
+    width: 27vw;
+    list-style-type: none;
     flex-direction: column;
 }
 
 .result-img {
-    width: 300px;
+    width: 27vw;
     height: 300px;
+    object-fit: fill;
+    border: 10px solid black;
 }
 
 .ran-park-name {
@@ -133,7 +135,7 @@
 }
 
 .alice-carousel__stage-item {
-    width: 30vw;
+    width: 27vw;
 }
 
 @media (max-width: 1500px) {
