@@ -80,6 +80,8 @@ export default function Home() {
         <main className='home-wrapper'>
             <section className='pic-container'>
                 <img src={homePic} alt="" className='homepic' />
+            </section>
+            <section>
                 <div className='btn-holding-cont'>
                     <Link to="/nationalTravel" type='button' className='home-btn'>
                         <div className='home-btn-text'>Travel Nationally</div>
@@ -98,8 +100,6 @@ export default function Home() {
                         <img src={concertPic} alt='' className='home-display' />
                     </Link>
                 </div>
-            </section>
-            <section>
                 <form className='random-cont' onSubmit={handleSubmit}>
                     <article className='random-trip-cont'>
                         <div className='inp-wrap'>
