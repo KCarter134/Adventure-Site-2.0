@@ -21,7 +21,7 @@ function TravelCamping() {
     }
 
     const campingData = () => {
-        fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=${StateInput}&fields=images&limit=800&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
+        fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=${StateInput}&fields=images&limit=800&start=0&api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.json())
             .then((result) => {
                 // setIsLoaded(true);
