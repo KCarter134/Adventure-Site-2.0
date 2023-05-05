@@ -5,7 +5,6 @@ import nationalPic from '../../assets/pictures/nationalParks.jpg'
 import stateParksPic from '../../assets/pictures/stateParks.jpg'
 import concertPic from '../../assets/pictures/concert.jpg'
 import AliceCarousel from 'react-alice-carousel';
-import "react-alice-carousel/lib/alice-carousel.css";
 
 export default function Home() {
 
@@ -13,15 +12,15 @@ export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
     const [park, setPark] = useState([]);
-    const [carouselPics, setCarouselPics] = useState([]);
 
     
     useState(() => {
-        fetch('https:developer.nps.gov/api/v1/parks?&limit=800&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd')
+        fetch(`https:developer.nps.gov/api/v1/parks?&limit=800&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
                 setData(result.data);
+                setPark(generatePark(result.data))
 
             },
             (error) => {
@@ -35,7 +34,8 @@ export default function Home() {
 
     const handleSubmit = (e) => {  
         e.preventDefault() 
-        generatePark();
+        
+        setPark(generatePark(data));
         // console.log(data)
     }
         
@@ -43,17 +43,17 @@ export default function Home() {
         // setStateInput(event.target.value)
     }
 
-    const generatePark = () => {
+    const generatePark = (allParks) => {
         let threeRandomOnes = []
         for(let i = 0; i < 3; i++){
-          let randomPark = Math.floor(Math.random() * data.length)
+          let randomPark = Math.floor(Math.random() * allParks.length)
           while(threeRandomOnes.includes(randomPark)){
-            randomPark = Math.floor(Math.random() * data.length)
+            randomPark = Math.floor(Math.random() * allParks.length)
           }
-          threeRandomOnes.push(data[randomPark])
+          threeRandomOnes.push(allParks[randomPark])
         }
     
-        setPark(threeRandomOnes);
+        return threeRandomOnes;
     }    
 
 
@@ -67,7 +67,6 @@ export default function Home() {
                 ))}
             </li>
           ))}
-          return setCarouselPics(items.url)
     }
 
 
@@ -111,21 +110,21 @@ export default function Home() {
                                 <li key={item.id} >
                                     <AliceCarousel responsive={responsive}>
                                     {item.images.map(pics => (
-                                        <div className='carousel-pic-wrapper'>
+                                        // +100 to pic ID assures unique id 
+                                        <div key={pics.id + 100} className='carousel-pic-wrapper'>
                                             <img key={pics.id} src={pics.url} alt='' className='result-img' />
                                         </div>    
                                     ))}
                                     </AliceCarousel>
-                                            
-
-                                            
-                                <div className='ran-park-name'>{item.fullName}</div>
-                                <div className='ran-park-city'>{item.addresses[0].city}
-                                    <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
-                                    <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
-                                </div>
-                                <div className="ran-park-address">{item.addresses[0].line1}</div>
+                                <div className='home-info-flex'>      
+                                    <div className='ran-park-name'>{item.fullName}</div>
+                                    <div className='ran-park-city'>{item.addresses[0].city}
+                                        <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
+                                        <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
+                                    </div>
+                                    <div className="ran-park-address">{item.addresses[0].line1}</div>
                                 <div className='gotoBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
+                                </div>      
                                 <div className='ran-park-desc'>{item.description}</div>
                                 </li>
                               ))}
