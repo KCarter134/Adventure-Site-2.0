@@ -5,7 +5,7 @@ import nationalPic from '../../assets/pictures/nationalParks.jpg'
 import stateParksPic from '../../assets/pictures/stateParks.jpg'
 import concertPic from '../../assets/pictures/concert.jpg'
 import AliceCarousel from 'react-alice-carousel';
-console.log(process.env.REACT_APP_API_KEY)
+
 export default function Home() {
 
     const [error, setError] = useState(null);
@@ -56,7 +56,6 @@ export default function Home() {
         return threeRandomOnes;
     }    
 
-
     const getImages = (items) => {
         {park.map(item => (
             <li key={item.id} >
@@ -68,7 +67,6 @@ export default function Home() {
             </li>
           ))}
     }
-
 
     const responsive = {
         0: {
@@ -102,9 +100,11 @@ export default function Home() {
                 </div>
                 <form className='random-cont' onSubmit={handleSubmit}>
                     <article className='random-trip-cont'>
-                        <div className='inp-wrap'>
-                            <input type='submit' value='Random Park' className='park-inp inp' onSubmit={handleSubmit}/>
-                        </div>
+                        <div className='inp-wrap'></div>
+                            <div className='title-btn-wrapper'>
+                                <div className='random-title'><i>Random Trip →</i></div>
+                                <input type='submit' value='Randomize' className='park-inp inp' onSubmit={handleSubmit}/>
+                            </div>
                         <div className='result-field res-field-top'>
                             {park.map(item => (
                                 <li key={item.id} >
@@ -132,11 +132,19 @@ export default function Home() {
                         </div>
                     </article>
                     <article className='random-concert-cont'>
-                        <div className='inp-wrap'>
-                            <input type='submit' value='Random Concert' className='concert-inp inp' />
+                        <div className='inp-wrap lower-wrap'></div>
+                        <div className='title-btn-wrapper'>
+                            <div className='random-title'><i>Popular Travel Locations →</i></div>
                         </div>
                         <div className='result-field'>
-                            
+                            <div className='trav-loc-1'>
+                                <img src='Yosemite' alt='' className='pop-trav-img' />
+                                <div className='trav-loc-info-wrapper'>
+                                    <div className='trav-title'>Yosemite</div>
+                                    <div className='trav-location'></div>
+                                    <div className='trav-desc'></div>
+                                </div>
+                            </div>
                         </div>
                     </article>
                 </form>
