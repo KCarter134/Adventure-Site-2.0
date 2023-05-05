@@ -1,6 +1,6 @@
 import React from 'react';
 import cityPic from '../../assets/pictures/city.jpg'
-import FestivalPageForm from '../festivalPageForm'
+import FestivalPageForm from '../../../../src/components/festivalPageForm'
 
 export default function festivalPage() { 
     

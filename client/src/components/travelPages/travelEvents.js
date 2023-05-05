@@ -1,29 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import parkPic from "../../assets/pictures/park.jpg";
+import parkEvents from "../../assets/pictures/parkEvents.jpg";
 
 
-function TravelParks() {
+function TravelEvents() {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setItems] = useState([]);
-    const [ pictures, setPictures ] = useState({})
-
 
     useEffect(() => {
-        fetch("https://developer.nps.gov/api/v1/places?limit=75&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
+        fetch(`https://developer.nps.gov/api/v1/events?organization=&eventType=&pageSize=75&pageNumber=1&api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
                 setItems(result.data);
                 console.log(result.data)
-                result?.data?.map((image, i) => {
-                    return image.images.map((img, i) => {
-                        return setPictures(img)          
-                        })
-                    }
-                );
             },
             (error) => {
                 setIsLoaded(true);
@@ -31,16 +23,6 @@ function TravelParks() {
             }
             )
         }, [])
-
-    const getImage = (item) => {
-        try{
-            if(item.images != null){
-                return item.images[0].url;
-            }
-        }catch{
-            return pictures.url;
-        }
-    }
     
 if (error) {
 return <div>Error: {error.message}</div>;
@@ -49,31 +31,37 @@ return <div>Loading...</div>;
 } else {
     return (
         <section className='mapped-info-cont'>
-            <img src={parkPic} className='park-pic card-pic' alt='parkpic'></img>
+            <img src={parkEvents} className='park-pic card-pic' alt='parkpic'></img>
             <div className='page-nav-wrap'>
                 <div className='page-nav'>
                     <Link to="/TravelParks" className='nav'>Parks</Link>
                     <Link to="/TravelCamping" className='nav'>Camping</Link>
-                    <Link to="/TravelEvents" className='nav'>Events</Link>
-                    <Link to="/TravelPlaces" className='nav in-use'>Places</Link>
+                    <Link to="/TravelPlaces" className='nav'>Places</Link>
+                    <Link to="/TravelEvents" className='nav in-use'>Events</Link>
                     <Link to="/TravelPeople" className='nav'>People</Link>
                     <Link to="/TravelTours" className='nav'>Tours</Link>
                 </div>
             </div>
-           <div className='mapped-info-inner'>
 
+            <div className='mapped-info-inner'>
             {data.map(item => (
                 <li key={item.id} >
-                <img className='container-pic' alt='map data' src={getImage(item)}></img>
-                        <div className='park-name card-name'>{item.title}</div> 
-                        <div className='card-desc'>{item.listingDescription}</div>  
+                <img className='container-pic' alt='map data' src={item.images}></img>
+                        <div className='park-name card-name'>{item.parkfullname}</div>
+                        <div className='card-fee'>{item.feeinfo}</div>
+                        <div className='start-end-times'>
+                            <span className='card-start'>Start Date: <b>{item.date}</b></span> - 
+                            <span className='card-end'>End Date: <b>{item.dateend}</b></span>
+                        </div>
+                        <div className='event-desc card-desc'>{item.description}</div>
                         <div className='urlBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
-                </li> 
-            ))}
+
+                </li>
+        ))}
             </div>
         </section>
     );
   }
 }
 
-export default TravelParks;
+export default TravelEvents;

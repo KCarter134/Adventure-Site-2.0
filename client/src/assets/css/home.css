@@ -80,7 +80,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(34, 34, 34);
 }
 
 .inp {
@@ -113,6 +113,14 @@
     border: 5px solid black;
 }
 
+.home-info-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+}
+
 .ran-park-name {
     font-size: larger;
     font-weight: 600;
@@ -120,14 +128,14 @@
 
 .gotoBtn {
     position: relative;
-    width: 50%;
+    width: 40%;
     height: 30px;
     border: 1px solid black;
     text-align: center;
     padding-top: 5px;
     border-radius: 3px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px;
+    margin-left: 30%;
 }
 
 

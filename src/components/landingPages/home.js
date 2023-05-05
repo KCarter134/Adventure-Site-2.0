@@ -13,15 +13,15 @@ export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
     const [park, setPark] = useState([]);
+    const [carouselPics, setCarouselPics] = useState([]);
 
     
     useState(() => {
-        fetch(`https:developer.nps.gov/api/v1/parks?&limit=800&api_key=${process.env.REACT_APP_API_KEY}`)
+        fetch('https:developer.nps.gov/api/v1/parks?&limit=800&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd')
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
                 setData(result.data);
-                setPark(generatePark(result.data))
 
             },
             (error) => {
@@ -35,8 +35,7 @@ export default function Home() {
 
     const handleSubmit = (e) => {  
         e.preventDefault() 
-        
-        setPark(generatePark(data));
+        generatePark();
         // console.log(data)
     }
         
@@ -44,17 +43,17 @@ export default function Home() {
         // setStateInput(event.target.value)
     }
 
-    const generatePark = (allParks) => {
+    const generatePark = () => {
         let threeRandomOnes = []
         for(let i = 0; i < 3; i++){
-          let randomPark = Math.floor(Math.random() * allParks.length)
+          let randomPark = Math.floor(Math.random() * data.length)
           while(threeRandomOnes.includes(randomPark)){
-            randomPark = Math.floor(Math.random() * allParks.length)
+            randomPark = Math.floor(Math.random() * data.length)
           }
-          threeRandomOnes.push(allParks[randomPark])
+          threeRandomOnes.push(data[randomPark])
         }
     
-        return threeRandomOnes;
+        setPark(threeRandomOnes);
     }    
 
 
@@ -68,6 +67,7 @@ export default function Home() {
                 ))}
             </li>
           ))}
+          return setCarouselPics(items.url)
     }
 
 
@@ -111,21 +111,21 @@ export default function Home() {
                                 <li key={item.id} >
                                     <AliceCarousel responsive={responsive}>
                                     {item.images.map(pics => (
-                                        // +100 to pic ID assures unique id 
-                                        <div key={pics.id + 100} className='carousel-pic-wrapper'>
+                                        <div className='carousel-pic-wrapper'>
                                             <img key={pics.id} src={pics.url} alt='' className='result-img' />
                                         </div>    
                                     ))}
                                     </AliceCarousel>
-                                <div className='home-info-flex'>      
-                                    <div className='ran-park-name'>{item.fullName}</div>
-                                    <div className='ran-park-city'>{item.addresses[0].city}
-                                        <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
-                                        <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
-                                    </div>
-                                    <div className="ran-park-address">{item.addresses[0].line1}</div>
+                                            
+
+                                            
+                                <div className='ran-park-name'>{item.fullName}</div>
+                                <div className='ran-park-city'>{item.addresses[0].city}
+                                    <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
+                                    <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
+                                </div>
+                                <div className="ran-park-address">{item.addresses[0].line1}</div>
                                 <div className='gotoBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
-                                </div>      
                                 <div className='ran-park-desc'>{item.description}</div>
                                 </li>
                               ))}

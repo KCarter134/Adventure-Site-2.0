@@ -1,22 +1,25 @@
 import reportWebVitals from './reportWebVitals';
 import { Routes, Route } from "react-router-dom";
 import FestivalPage from "./components/landingPages/festivalPage";
-import Home from './components/landingPages/home'
-import NationalTravel from "./components/landingPages/nationalTravel"
+import Home from '../client/src/components/landingPages/home'
+import NationalTravel from "../client/src/components/landingPages/nationalTravel"
 import Navbar from './components/navbar';
-import TravelParks from '../src/components/travelPages/travelParks'
-import TravelCamping from '../src/components/travelPages/travelCamping'
-import TravelEvents from '../src/components/travelPages/travelEvents'
-import TravelPlaces from '../src/components/travelPages/travelPlaces'
-import TravelPeople from '../src/components/travelPages/travelPeople'
-import TravelTours from '../src/components/travelPages/travelTours'
+import TravelParks from './components/travelPages/travelParks'
+import TravelCamping from './components/travelPages/travelCamping'
+import TravelEvents from './components/travelPages/travelEvents'
+import TravelPlaces from './components/travelPages/travelPlaces'
+import TravelPeople from './components/travelPages/travelPeople'
+import TravelTours from './components/travelPages/travelTours'
 import LocalTravel from './components/landingPages/localTravel'
-import Profile from './components/landingPages/profile'
+import Profile from '../client/src/components/landingPages/profile'
 import Login from './components/user/login'
 import Signup from './components/user/signup'
 import './index.css';
 
+
+
 export default function App() {
+  
   return (
 
         <div className="App">

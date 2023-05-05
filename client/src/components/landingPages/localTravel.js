@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom'
 import parkPic from "../../assets/pictures/park.jpg"
-import "../../utils/helpers"
+import "../../../../src/utils/helpers"
 
 // NOT TRUE PAGE YET... STILL NEEDS TO BE CREATED AND WORKED ON
 // NOT TRUE PAGE YET... STILL NEEDS TO BE CREATED AND WORKED ON
