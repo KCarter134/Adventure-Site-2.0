@@ -1,6 +1,7 @@
 {
     "name": "adventure-site",
     "version": "0.1.0",
+    "homepage": "https://kcarter134.github.io/Adventure-Site-2.0",
     "private": true,
     "dependencies": {
         "@apollo/client": "^3.7.1",
@@ -21,6 +22,8 @@
         "yup": "^1.0.1"
     },
     "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",
