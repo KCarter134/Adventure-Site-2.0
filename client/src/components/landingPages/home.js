@@ -5,7 +5,7 @@ import nationalPic from '../../assets/pictures/nationalParks.jpg'
 import stateParksPic from '../../assets/pictures/stateParks.jpg'
 import concertPic from '../../assets/pictures/concert.jpg'
 import AliceCarousel from 'react-alice-carousel';
-
+console.log(process.env.REACT_APP_API_KEY)
 export default function Home() {
 
     const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ export default function Home() {
 
     
     useState(() => {
-        fetch(`https:developer.nps.gov/api/v1/parks?&limit=800&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
+        fetch(`https:developer.nps.gov/api/v1/parks?&limit=800&api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);

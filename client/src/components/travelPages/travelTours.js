@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import parkPic from "../../assets/pictures/park.jpg";
@@ -11,7 +10,7 @@ function TravelParks() {
     const [data, setItems] = useState([]);
 
     useEffect(() => {
-        fetch("https:developer.nps.gov/api/v1/parks?limit=50&start=0&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
+        fetch(`https:developer.nps.gov/api/v1/parks?limit=50&start=0&api_key=${process.env.REACT_APP_API_KEY}`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);

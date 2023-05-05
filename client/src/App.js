@@ -21,7 +21,7 @@ export default function App() {
 
         <div className="App">
           <Routes>
-            <Route path="/Adventure-Site-2.0" element={<Home />}/>
+            <Route path="/Adventure-Site-2.0" element={<><Navbar /> <Home /></>}/>
             <Route path="/" element={<><Navbar /> <Home /></>}/>
             <Route path="/festivalPage" element={<><Navbar /> <FestivalPage  /></>}/>
             <Route path="/nationalTravel" element={<><Navbar /> <NationalTravel /></>}/>
