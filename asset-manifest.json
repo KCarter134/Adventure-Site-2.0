@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/Adventure-Site-2.0/static/css/main.11d630a6.css",
+    "main.js": "/Adventure-Site-2.0/static/js/main.71097025.js",
+    "static/js/787.8c91fea4.chunk.js": "/Adventure-Site-2.0/static/js/787.8c91fea4.chunk.js",
+    "static/media/homePic.jpg": "/Adventure-Site-2.0/static/media/homePic.0d48d23930c46f025ee2.jpg",
+    "static/media/stateParks.jpg": "/Adventure-Site-2.0/static/media/stateParks.51906e0b4dfcf1074a1b.jpg",
+    "static/media/nationalParks.jpg": "/Adventure-Site-2.0/static/media/nationalParks.de3d622e5a136936b322.jpg",
+    "static/media/city.jpg": "/Adventure-Site-2.0/static/media/city.16c63ea62cc571b6e4c5.jpg",
+    "static/media/concert.jpg": "/Adventure-Site-2.0/static/media/concert.f8042df5293164ca1bf4.jpg",
+    "static/media/park.jpg": "/Adventure-Site-2.0/static/media/park.37e0cf375f55cfc96fed.jpg",
+    "static/media/placesPic.jpg": "/Adventure-Site-2.0/static/media/placesPic.3267129cc6370d6ae651.jpg",
+    "static/media/mountain.jpg": "/Adventure-Site-2.0/static/media/mountain.aa1b08caf3aedeab0d4d.jpg",
+    "static/media/stars.jpg": "/Adventure-Site-2.0/static/media/stars.ea5b329914d179969115.jpg",
+    "static/media/parkTourPic.jpg": "/Adventure-Site-2.0/static/media/parkTourPic.fb372c24e9109009913c.jpg",
+    "static/media/activitiesPic.jpg": "/Adventure-Site-2.0/static/media/activitiesPic.0fe09e86b8f8894c9fae.jpg",
+    "static/media/parkEvents.jpg": "/Adventure-Site-2.0/static/media/parkEvents.a06fbf6b9502efa644bc.jpg",
+    "static/media/concPic7.jpg": "/Adventure-Site-2.0/static/media/concPic7.299f532816c75b2641ab.jpg",
+    "index.html": "/Adventure-Site-2.0/index.html",
+    "main.11d630a6.css.map": "/Adventure-Site-2.0/static/css/main.11d630a6.css.map",
+    "main.71097025.js.map": "/Adventure-Site-2.0/static/js/main.71097025.js.map",
+    "787.8c91fea4.chunk.js.map": "/Adventure-Site-2.0/static/js/787.8c91fea4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.11d630a6.css",
+    "static/js/main.71097025.js"
+  ]
+}
