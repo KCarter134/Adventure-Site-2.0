@@ -26,7 +26,7 @@ export default function Home() {
             (error) => {
                 setIsLoaded(true);
                 setError(error);
-                console.log("error")
+                console.log("error retrieving api data")
             }
         )
 
