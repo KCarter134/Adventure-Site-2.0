@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import homePic from '../../assets/pictures/homePic.jpg'
 import { Link } from 'react-router-dom'
 import nationalPic from '../../assets/pictures/nationalParks.jpg'
@@ -12,25 +12,27 @@ export default function Home() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [data, setData] = useState([]);
     const [park, setPark] = useState([]);
+    const [fadeIn, setFadeIn] = useState(false);
 
     
-    useState(() => {
-        fetch("https:developer.nps.gov/api/v1/parks?&limit=800&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
+    useEffect(() => {
+        setFadeIn(true);
+        fetch("https://developer.nps.gov/api/v1/parks?&limit=800&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
                 setData(result.data);
                 setPark(generatePark(result.data))
 
-            },
+            }, 
             (error) => {
-                setIsLoaded(true);
+                console.log(error)
                 setError(error);
                 console.log("error retrieving api data")
             }
         )
 
-    })
+    }, [])
 
     const handleSubmit = (e) => {  
         e.preventDefault() 
@@ -79,16 +81,15 @@ export default function Home() {
             <section className='pic-container'>
                 <img src={homePic} alt="" className='homepic' />
             </section>
+            <div className={`text-container ${fadeIn ? 'fade-in' : ''}`}>
+                <h1><i>GoAdventure</i></h1>
+            </div>
             <section>
                 <div className='btn-holding-cont'>
                     <Link to="/nationalTravel" type='button' className='home-btn'>
                         <div className='home-btn-text'>Travel Nationally</div>
                         <img src={nationalPic} alt='' className='home-display' />
                     </Link>
-                    {/* <Link to="/travelCamping" type='button' className='home-btn'>
-                        <img src={travelCampingPic} alt='' className='home-display' />
-                        <div className='home-btn-text'>Go Camping</div>
-                    </Link> */}
                     <Link to="/localTravel" type="button" className="store-favorites-btn home-btn">
                         <div className='home-btn-text'>Travel Locally</div>
                         <img src={stateParksPic} alt='' className='home-display' />

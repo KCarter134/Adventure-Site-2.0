@@ -22,7 +22,7 @@ function TravelParks() {
     }
 
     const parkData = () => {
-        fetch("https:developer.nps.gov/api/v1/parks?stateCode=${StateInput}&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd")
+        fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${StateInput}&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
