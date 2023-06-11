@@ -5,6 +5,7 @@ import nationalPic from '../../assets/pictures/nationalParks.jpg'
 import stateParksPic from '../../assets/pictures/stateParks.jpg'
 import concertPic from '../../assets/pictures/concert.jpg'
 import AliceCarousel from 'react-alice-carousel';
+import popularData from '../Data/popularData'
 
 export default function Home() {
 
@@ -13,6 +14,7 @@ export default function Home() {
     const [data, setData] = useState([]);
     const [park, setPark] = useState([]);
     const [fadeIn, setFadeIn] = useState(false);
+    const [popularTrip, setPopularTrip] = useState([]);
 
     
     useEffect(() => {
@@ -121,7 +123,7 @@ export default function Home() {
                                     <div className='ran-park-name'>{item.fullName}</div>
                                     <div className='ran-park-city'>{item.addresses[0].city}
                                         <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
-                                        <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
+                                        <span className='ran-park-pc'> {item.addresses[0].postalCode}</span>
                                     </div>
                                     <div className="ran-park-address">{item.addresses[0].line1}</div>
                                 <div className='gotoBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
@@ -137,14 +139,27 @@ export default function Home() {
                         <div className='title-btn-wrapper'>
                             <div className='random-title'><i>Popular Travel Locations →</i></div>
                         </div>
-                        <div className='result-field'>
-                            <div className='trav-loc-1'>
-                                <img src='Yosemite' alt='' className='pop-trav-img' />
-                                <div className='trav-loc-info-wrapper'>
-                                    <div className='trav-title'>Yosemite</div>
-                                    <div className='trav-location'></div>
-                                    <div className='trav-desc'></div>
-                                </div>
+                        <div className='pop-result-field'>
+                            <div className='pop-info-wrapper'>
+                                {popularData.map(popular => (
+                                    <li key={popular.id} >
+                                        <div key={popular.id} className='pop-pic-wrapper'>
+                                            <img key={popular.id} src={popular.pictures} alt='' className='result-img' />
+                                        </div>    
+                                        <div className='home-info-flex'>      
+                                            <div className='ran-park-name'>{popular.title}</div>
+                                            <div className='ran-park-desc'>{popular.description}</div>
+
+                                            {/* <div className='ran-park-city'>{item.addresses[0].city}
+                                                <span className='ran-park-sc'>, {item.addresses[0].stateCode}</span>
+                                                <span className='ran-park-pc'>, {item.addresses[0].postalCode}</span>
+                                            </div>
+                                            <div className="ran-park-address">{item.addresses[0].line1}</div>
+                                        <div className='gotoBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
+                                            
+                                        <div className='ran-park-desc'>{item.description}</div> */}</div>   
+                                    </li>
+                                ))}
                             </div>
                         </div>
                     </article>

@@ -133,9 +133,8 @@
 .result-field {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    width: 94vw;
     justify-content: center;
-    gap: 50px;
+    gap: 100px;
     margin-top: 2vh;
 }
 
@@ -178,6 +177,20 @@
     display: flex;
 }
 
+.pop-result-field {
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+
+}
+
+.pop-info-wrapper {
+    display: grid;
+    grid-template-columns: 27vw 27vw 27vw;
+    column-gap: 100px;
+    row-gap: 50px;
+}
                         /* RANDOMIZE BUTTON ANIMATION */
 
                         
