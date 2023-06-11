@@ -1,7 +1,8 @@
-import Yosemite from "../../assets/pictures/city.jpg";
-import Rainier from "../../assets/pictures/park.jpg";
-import Zion from "../../assets/pictures/nationalParks.jpg";
-import Arches from "../../assets/pictures/concPic10.jpg";
+import Yosemite from "../../assets/pictures/yosemite.jpg";
+import Rainier from "../../assets/pictures/rainier.avif";
+import Zion from "../../assets/pictures/zion.avif";
+import Arches from "../../assets/pictures/arches.avif";
+import Channel from '../../assets/pictures/channel.avif'
 
 const popularData = [
 
@@ -23,12 +24,12 @@ const popularData = [
         {
             title: "Arches National Park",
             description: "Utah's first national Park, Zion offers hiking, camping, backpacking, climbing, and more, making it a popular summer vacation spot for families and adventurers. Situated in the southwestern corner of Utah near the Nevada and Arizona borders, Zion National Park is a convenient stop for those visiting Salt Lake City, Las Vegas or Grand Canyon National Park. Accessible from State Route 9 or Interstate 15, Zion offers visitors a variety of activities across several geographic regions. It started out as Mukuntuweap National Monument in 1909, but was granted national park status by the U.S. Congress in 1919.",
-            pictures: Zion
+            pictures: Arches
         },
         {
-            title: "Zion",
+            title: "Channel Islands National Park",
             description: "Utah's first national Park, Zion offers hiking, camping, backpacking, climbing, and more, making it a popular summer vacation spot for families and adventurers. Situated in the southwestern corner of Utah near the Nevada and Arizona borders, Zion National Park is a convenient stop for those visiting Salt Lake City, Las Vegas or Grand Canyon National Park. Accessible from State Route 9 or Interstate 15, Zion offers visitors a variety of activities across several geographic regions. It started out as Mukuntuweap National Monument in 1909, but was granted national park status by the U.S. Congress in 1919.",
-            pictures: Arches
+            pictures: Channel
         },
         {
             title: "Zion",
