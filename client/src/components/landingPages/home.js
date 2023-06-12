@@ -105,7 +105,11 @@ export default function Home() {
                     <article className='random-trip-cont'>
                         <div className='inp-wrap'></div>
                             <div className='title-btn-wrapper'>
-                                <div className='random-title'><i>Random Trip →</i></div>
+                                <div className='black-label'>
+                                    <div className='random-title'>
+                                        <i>Random Trip → </i>
+                                    </div>
+                                </div>
                                 <input type='submit' value='Randomize' className='park-inp inp' onSubmit={handleSubmit}/>
                             </div>
                         <div className='result-field res-field-top'>
@@ -126,7 +130,7 @@ export default function Home() {
                                         <span className='ran-park-pc'> {item.addresses[0].postalCode}</span>
                                     </div>
                                     <div className="ran-park-address">{item.addresses[0].line1}</div>
-                                <div className='gotoBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
+                                <div className='gotoBtn'><a href={item.url} className='ran-url'>Go To Website</a></div>
                                 </div>      
                                 <div className='ran-park-desc'>{item.description}</div>
                                 </li>
@@ -137,14 +141,18 @@ export default function Home() {
                     <article className='random-concert-cont'>
                         <div className='inp-wrap lower-wrap'></div>
                         <div className='title-btn-wrapper'>
-                            <div className='random-title'><i>Popular Travel Locations →</i></div>
+                            <div className='ran-black-label'>
+                                <div className='random-title'>
+                                    <i>Popular Travel Locations →</i>
+                                </div>
+                            </div>
                         </div>
                         <div className='pop-result-field'>
                             <div className='pop-info-wrapper'>
                                 {popularData.map(popular => (
                                     <li key={popular.id} >
                                         <div key={popular.id} className='pop-pic-wrapper'>
-                                            <img key={popular.id} src={popular.pictures} alt='' className='result-img' />
+                                            <img key={popular.id} src={popular.pictures} alt='' className='ran-result-img' />
                                         </div>    
                                         <div className='home-info-flex'>      
                                             <div className='ran-park-name'>{popular.title}</div>
