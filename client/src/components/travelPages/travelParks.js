@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import parkPic from "../../assets/pictures/park.jpg";
-import { abbrState } from "../../utils/stateMapping"
+import DropDown from "../../utils/stateMapping"
 
 
 function TravelParks() {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [ StateInput, setStateInput ] = useState("MI");
+    const [ StateInput, setStateInput ] = useState("");
     const [data, setData] = useState([]);
+    const [dropdown, setDropdown] = useState("");
+
+    const handleDropdown = (dropdownChoice) => {
+      setDropdown(dropdownChoice);
+    }
 
     const handleSubmit = (e) => {  
         e.preventDefault() 
@@ -22,7 +27,7 @@ function TravelParks() {
     }
 
     const parkData = () => {
-        fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${StateInput}&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
+        fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${dropdown}&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
@@ -53,14 +58,16 @@ function TravelParks() {
             </div>
 
             <form className='national-form' onSubmit={(e) => {handleSubmit(e)}}>
-                <input 
+                {/* <input 
                     type="text" 
                     className='national-input'
                     name='stateCode'
                     value={StateInput}
                     placeholder="state of national park destination"
                     onChange={handleChange}
-                    />
+                    /> */}
+                    <DropDown onComponentChange={handleDropdown}  />
+                    
                 <input className='national-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
             </form>
 

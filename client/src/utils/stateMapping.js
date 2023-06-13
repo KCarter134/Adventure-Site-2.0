@@ -1,75 +1,76 @@
-import React from "react"
+import React, { useState } from 'react';
 
-export function abbrState({StateInput}, to){
-    
-    var states = [
-        ['Arizona', 'AZ'],
-        ['Alabama', 'AL'],
-        ['Alaska', 'AK'],
-        ['Arkansas', 'AR'],
-        ['California', 'CA'],
-        ['Colorado', 'CO'],
-        ['Connecticut', 'CT'],
-        ['Delaware', 'DE'],
-        ['Florida', 'FL'],
-        ['Georgia', 'GA'],
-        ['Hawaii', 'HI'],
-        ['Idaho', 'ID'],
-        ['Illinois', 'IL'],
-        ['Indiana', 'IN'],
-        ['Iowa', 'IA'],
-        ['Kansas', 'KS'],
-        ['Kentucky', 'KY'],
-        ['Louisiana', 'LA'],
-        ['Maine', 'ME'],
-        ['Maryland', 'MD'],
-        ['Massachusetts', 'MA'],
-        ['Michigan', 'MI'],
-        ['Minnesota', 'MN'],
-        ['Mississippi', 'MS'],
-        ['Missouri', 'MO'],
-        ['Montana', 'MT'],
-        ['Nebraska', 'NE'],
-        ['Nevada', 'NV'],
-        ['New Hampshire', 'NH'],
-        ['New Jersey', 'NJ'],
-        ['New Mexico', 'NM'],
-        ['New York', 'NY'],
-        ['North Carolina', 'NC'],
-        ['North Dakota', 'ND'],
-        ['Ohio', 'OH'],
-        ['Oklahoma', 'OK'],
-        ['Oregon', 'OR'],
-        ['Pennsylvania', 'PA'],
-        ['Rhode Island', 'RI'],
-        ['South Carolina', 'SC'],
-        ['South Dakota', 'SD'],
-        ['Tennessee', 'TN'],
-        ['Texas', 'TX'],
-        ['Utah', 'UT'],
-        ['Vermont', 'VT'],
-        ['Virginia', 'VA'],
-        ['Washington', 'WA'],
-        ['West Virginia', 'WV'],
-        ['Wisconsin', 'WI'],
-        ['Wyoming', 'WY'],
-    ];
+const StateDropdown = ({onComponentChange}) => {
+    const [selectedState, setSelectedState] = useState('');
+    const states = [
+        { code: 'AL', name: 'Alabama' },
+        { code: 'AK', name: 'Alaska' },
+        { code: 'AZ', name: 'Arizona' },
+        { code: 'AR', name: 'Arkansas' },
+        { code: 'CA', name: 'California' },
+        { code: 'CO', name: 'Colorado' },
+        { code: 'CT', name: 'Connecticut' },
+        { code: 'DE', name: 'Delaware' },
+        { code: 'FL', name: 'Florida' },
+        { code: 'GA', name: 'Georgia' },
+        { code: 'HI', name: 'Hawaii' },
+        { code: 'ID', name: 'Idaho' },
+        { code: 'IL', name: 'Illinois' },
+        { code: 'IN', name: 'Indiana' },
+        { code: 'IA', name: 'Iowa' },
+        { code: 'KS', name: 'Kansas' },
+        { code: 'KY', name: 'Kentucky' },
+        { code: 'LA', name: 'Louisiana' },
+        { code: 'ME', name: 'Maine' },
+        { code: 'MD', name: 'Maryland' },
+        { code: 'MA', name: 'Massachusetts' },
+        { code: 'MI', name: 'Michigan' },
+        { code: 'MN', name: 'Minnesota' },
+        { code: 'MS', name: 'Mississippi' },
+        { code: 'MO', name: 'Missouri' },
+        { code: 'MT', name: 'Montana' },
+        { code: 'NE', name: 'Nebraska' },
+        { code: 'NV', name: 'Nevada' },
+        { code: 'NH', name: 'New Hampshire' },
+        { code: 'NJ', name: 'New Jersey' },
+        { code: 'NM', name: 'New Mexico' },
+        { code: 'NY', name: 'New York' },
+        { code: 'NC', name: 'North Carolina' },
+        { code: 'ND', name: 'North Dakota' },
+        { code: 'OH', name: 'Ohio' },
+        { code: 'OK', name: 'Oklahoma' },
+        { code: 'OR', name: 'Oregon' },
+        { code: 'PA', name: 'Pennsylvania' },
+        { code: 'RI', name: 'Rhode Island' },
+        { code: 'SC', name: 'South Carolina' },
+        { code: 'SD', name: 'South Dakota' },
+        { code: 'TN', name: 'Tennessee' },
+        { code: 'TX', name: 'Texas' },
+        { code: 'UT', name: 'Utah' },
+        { code: 'VT', name: 'Vermont' },
+        { code: 'VA', name: 'Virginia' },
+        { code: 'WA', name: 'Washington' },
+        { code: 'WV', name: 'West Virginia' },
+        { code: 'WI', name: 'Wisconsin' },
+        { code: 'WY', name: 'Wyoming' },
+      ];
 
-    if (to === 'abbr'){
-        StateInput = StateInput.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-        states.map(item => {
-            if(item[0] === StateInput){
-                return(item[1]);
-            }
-        })   
-    } else if (to === 'name'){
-        StateInput = StateInput.toUpperCase();
-        states.map(item => {
-            if(item[1] === StateInput){
-                return(item[0]);
-            }
-        })   
-    }
+    return (
+        <div className='national-input-cont'>
+            <select value={selectedState} className='national-input' onChange={(e) => {
+                setSelectedState(e.target.value);
+                onComponentChange(e.target.value)
+            }}>
+            <option value="">Select a state</option>
+            {states.map((state) => (
+                <option key={state.code} value={state.code}>
+                {state.name}
+                </option>
+            ))}
+            </select>
+            {/* {selectedState && <p>Selected State Code: {selectedState}</p>} */}
+        </div>
+    );
+};
 
-    console.log()
-}
+export default StateDropdown;
