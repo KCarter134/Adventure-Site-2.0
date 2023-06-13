@@ -108,9 +108,10 @@ export default function Home() {
                                 <div className='black-label'>
                                     <div className='random-title'>
                                         <i>Random Trip → </i>
+                                        <input type='submit' value='Randomize' className='park-inp inp' onSubmit={handleSubmit}/>
                                     </div>
                                 </div>
-                                <input type='submit' value='Randomize' className='park-inp inp' onSubmit={handleSubmit}/>
+                                
                             </div>
                         <div className='result-field res-field-top'>
                             {park.map(item => (
