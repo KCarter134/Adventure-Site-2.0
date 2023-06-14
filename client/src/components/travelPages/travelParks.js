@@ -12,6 +12,7 @@ function TravelParks() {
     const [data, setData] = useState([]);
     const [dropdown, setDropdown] = useState("");
     const [isClicked, setIsClicked] = useState(false);
+    const [initialDataLoaded, setInitialDataLoaded] = useState(false);
 
     const handleDropdown = (dropdownChoice) => {
       setDropdown(dropdownChoice);
@@ -24,9 +25,9 @@ function TravelParks() {
         console.log(StateInput) 
     }
         
-    const handleChange = (event) => {
-        setStateInput(event.target.value)
-    }
+    // const handleChange = (event) => {
+    //     setStateInput(event.target.value)
+    // }
 
     const parkData = () => {
         fetch(`https://developer.nps.gov/api/v1/parks?stateCode=${dropdown}&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
@@ -61,14 +62,12 @@ function TravelParks() {
     }
 
     useEffect(() => {
-        // if(!isClicked) {
-        //     initialParkData();
-        // }else{
-        //     parkData();
-        // }
+        if(!initialDataLoaded) {
+            initialParkData();
+            setInitialDataLoaded(true);
+        }
     })
     
-
     return (
         <section className='mapped-info-cont'>
             <img src={parkPic} className='park-pic card-pic' alt='parkpic'></img>
@@ -98,6 +97,11 @@ function TravelParks() {
             </form>
 
             <div className='mapped-info-inner'>
+            {!isClicked && 
+            <div className='initial-loaded-text'>
+                A few sites to see :)
+            </div>
+            }
             {data.map(item => (
                 <li key={item.id} >
                 <img className='container-pic' alt='map data' src={item.images[0].url}></img>
