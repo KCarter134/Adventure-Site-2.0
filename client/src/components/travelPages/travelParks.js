@@ -98,9 +98,9 @@ function TravelParks() {
 
             <div className='mapped-info-inner'>
             {!isClicked && 
-            <div className='initial-loaded-text'>
-                A few sites to see :)
-            </div>
+                <div className='initial-loaded-text'>
+                    A few sites to see :)
+                </div>
             }
             {data.map(item => (
                 <li key={item.id} >
