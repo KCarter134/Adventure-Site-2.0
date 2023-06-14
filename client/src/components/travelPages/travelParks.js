@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import parkPic from "../../assets/pictures/park.jpg";
 import DropDown from "../../utils/stateMapping"
@@ -11,12 +11,14 @@ function TravelParks() {
     const [ StateInput, setStateInput ] = useState("");
     const [data, setData] = useState([]);
     const [dropdown, setDropdown] = useState("");
+    const [isClicked, setIsClicked] = useState(false);
 
     const handleDropdown = (dropdownChoice) => {
       setDropdown(dropdownChoice);
     }
 
     const handleSubmit = (e) => {  
+        setIsClicked(true)
         e.preventDefault() 
         parkData(e);
         console.log(StateInput) 
@@ -41,6 +43,30 @@ function TravelParks() {
             }
         )
     }
+
+    const initialParkData = () => {
+        fetch(`https://developer.nps.gov/api/v1/parks?limit=6&api_key=8w91BhYJTMpXTIMCgectXocGhMCToXrslPKdoQwd`)
+            .then(res => res.json())
+            .then((result) => {
+                setIsLoaded(true);
+                setData(result.data);
+                console.log(result.data)
+            },
+            (error) => {
+                setIsLoaded(true);
+                setError(error);
+                console.log("error")
+            }
+        )
+    }
+
+    useEffect(() => {
+        // if(!isClicked) {
+        //     initialParkData();
+        // }else{
+        //     parkData();
+        // }
+    })
     
 
     return (

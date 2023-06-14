@@ -14,7 +14,6 @@ export default function Home() {
     const [data, setData] = useState([]);
     const [park, setPark] = useState([]);
     const [fadeIn, setFadeIn] = useState(false);
-    const [popularTrip, setPopularTrip] = useState([]);
 
     
     useEffect(() => {
@@ -25,7 +24,6 @@ export default function Home() {
                 setIsLoaded(true);
                 setData(result.data);
                 setPark(generatePark(result.data))
-
             }, 
             (error) => {
                 console.log(error)

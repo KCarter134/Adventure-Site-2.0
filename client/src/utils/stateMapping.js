@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const StateDropdown = ({onComponentChange}) => {
-    const [selectedState, setSelectedState] = useState('');
+    
     const states = [
         { code: 'AL', name: 'Alabama' },
         { code: 'AK', name: 'Alaska' },
@@ -57,8 +57,7 @@ const StateDropdown = ({onComponentChange}) => {
 
     return (
         <div className='national-input-cont'>
-            <select value={selectedState} className='national-input' onChange={(e) => {
-                setSelectedState(e.target.value);
+            <select className='national-input' onChange={(e) => {
                 onComponentChange(e.target.value)
             }}>
             <option value="">Select a state</option>
@@ -68,7 +67,6 @@ const StateDropdown = ({onComponentChange}) => {
                 </option>
             ))}
             </select>
-            {/* {selectedState && <p>Selected State Code: {selectedState}</p>} */}
         </div>
     );
 };
