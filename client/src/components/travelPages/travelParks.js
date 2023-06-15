@@ -8,7 +8,7 @@ function TravelParks() {
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [ StateInput, setStateInput ] = useState("");
+    const [StateInput, setStateInput] = useState("");
     const [data, setData] = useState([]);
     const [dropdown, setDropdown] = useState("");
     const [isClicked, setIsClicked] = useState(false);
@@ -22,7 +22,6 @@ function TravelParks() {
         setIsClicked(true)
         e.preventDefault() 
         parkData(e);
-        console.log(StateInput) 
     }
         
     // const handleChange = (event) => {
@@ -95,13 +94,13 @@ function TravelParks() {
                     
                 <input className='national-srch-btn' type="submit" value="Search" onSubmit={handleSubmit} />  
             </form>
-
-            <div className='mapped-info-inner'>
+            <div>
             {!isClicked && 
-                <div className='initial-loaded-text'>
-                    A few sites to see :)
-                </div>
-            }
+                    <div className='initial-loaded-text'>
+                        A few sites to see :)
+                    </div> }
+            </div>
+            <div className='mapped-info-inner'>
             {data.map(item => (
                 <li key={item.id} >
                 <img className='container-pic' alt='map data' src={item.images[0].url}></img>
@@ -111,7 +110,9 @@ function TravelParks() {
                             <span className='address-postal'>, {item.addresses[0].postalCode}</span>
                         </div>
                         <div className="physical-address">{item.addresses[0].line1}</div>
-                        <div className='urlBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
+                        <div className='card-button-cont'>
+                            <div className='urlBtn'><a href={item.url} className='park-url card-url'>Go To Website</a></div>
+                        </div>
                         <div className='park-desc card-desc'>{item.description}</div>
                 </li>
             ))}

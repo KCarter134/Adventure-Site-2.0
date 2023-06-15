@@ -18,6 +18,15 @@ section {
     width: 20vw;
 }
 
+.initial-loaded-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+    font-size: larger;
+    color: black;
+}
+
 .mapped-info-cont {
    background-color: black;
    text-align: center;
@@ -96,6 +105,11 @@ section {
     z-index: 1;
     width: 100vw;
     height: 72vh;
+}
+
+.card-button-cont {
+    display: flex;
+    justify-content: center;
 }
 
 .urlBtn {
