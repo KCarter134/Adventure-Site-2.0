@@ -82,21 +82,23 @@ export default function Home() {
                 <img src={homePic} alt="" className='homepic' />
             </section>
             <div className={`text-container ${fadeIn ? 'fade-in' : ''}`}>
-                <h1><i>GoAdventure</i></h1>
+                <h1 className='page-title'><i>GoAdventure</i></h1>
             </div>
-            <section>
+            <section className='btn-holding-main'>
                 <div className='btn-holding-cont'>
                     <Link to="/nationalTravel" type='button' className='home-btn'>
                         <div className='home-btn-text'>Travel Nationally</div>
                         <img src={nationalPic} alt='' className='home-display' />
                     </Link>
-                    <Link to="/localTravel" type="button" className="store-favorites-btn home-btn">
+                    <Link className="home-btn">
                         <div className='home-btn-text'>Travel Locally</div>
                         <img src={stateParksPic} alt='' className='home-display' />
+                        <div className='coming-soon'><i>Coming Soon!</i></div>
                     </Link>
                     <Link to="/festivalPage" type='button' className='home-btn concert-img'>
                         <div className='home-btn-text'>Attend Concerts</div>
                         <img src={concertPic} alt='' className='home-display' />
+                        
                     </Link>
                 </div>
                 <form className='random-cont' onSubmit={handleSubmit}>
