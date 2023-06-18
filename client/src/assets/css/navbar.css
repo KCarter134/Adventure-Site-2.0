@@ -34,6 +34,11 @@
     background-color: rgba(0, 0, 0, .4);
 }
 
+.menu-icon {
+    display: none;
+    height: 35px;
+}
+
 @media (max-width: 1500px) {
 
     .navbar {
@@ -48,6 +53,9 @@
 }
 
 @media (max-width: 700px) {
+    .header-container {
+        top: 8vh;
+    }
 
     .title {
         font-size: 16px;
@@ -59,9 +67,19 @@
 
     .navbar {
         display: none;
+        flex-direction: column;
     }
 
     .navbar-active {
         display: block;
+        top: 10vh;
+    }
+
+    .menu-icon {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+        right: 20px;
+        top: 20px;
     }
 }

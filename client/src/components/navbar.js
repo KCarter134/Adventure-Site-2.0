@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import menuIcon from "../assets/svg/menu.png"
-import "../assets/css/navbar.css"
 
 function Navbar() {
 
@@ -13,8 +12,8 @@ function Navbar() {
 
   return (
     <header className="header">
+      <img src={menuIcon} alt='ope its broken' className='menu-icon' onClick={toggleNav} />
       <section className="header-container">
-        <img src={menuIcon} alt='ope its broken' className='menu-icon' onClick={toggleNav} />
         <nav className={isOpen ? "navbar-active" : "navbar"}>
           <Link to="/" className="title">
             Homepage
