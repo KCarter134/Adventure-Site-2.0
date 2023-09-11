@@ -131,7 +131,9 @@ export default function Home() {
                                         <span className='ran-park-pc'> {item.addresses[0].postalCode}</span>
                                     </div>
                                     <div className="ran-park-address">{item.addresses[0].line1}</div>
-                                <div className='gotoBtn'><a href={item.url} className='ran-url'>Go To Website</a></div>
+                                    <div className='button-container-center'>
+                                        <div className='gotoBtn'><a href={item.url} className='ran-url'>Go To Website</a></div>
+                                    </div>
                                 </div>      
                                 <div className='ran-park-desc'>{item.description}</div>
                                 </li>
